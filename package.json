@@ -1,26 +1,37 @@
 {
-  "name": "gatsby-starter-default",
-  "description": "Gatsby default starter",
+  "name": "ianwremmel.com",
+  "description": "Personal website of Ian W. Remmel",
   "version": "1.0.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Ian Remmel <1182361+ianwremmel@users.noreply.github.com>",
   "dependencies": {
     "gatsby": "^1.9.118",
     "gatsby-link": "^1.6.28",
     "gatsby-plugin-react-helmet": "^1.0.8"
   },
-  "keywords": [
-    "gatsby"
-  ],
+  "keywords": [],
   "license": "MIT",
   "main": "n/a",
   "scripts": {
     "build": "gatsby build",
+    "commitmsg": "npm run --silent lint:commitmsg",
     "develop": "gatsby develop",
-    "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"src/**/*.js\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "npm run --silent lint:js && npm run --silent lint:changelog",
+    "lint:changelog": "conventional-changelog-lint --from origin/master --to HEAD",
+    "lint:commitmsg": "conventional-changelog-lint -e",
+    "lint:eslint": "eslint --ignore --ignore-path .gitignore",
+    "lint:js": "npm run --silent lint:eslint -- .",
+    "lint:staged": "lint-staged",
+    "precommit": "npm run --silent lint:staged",
+    "test": "npm run lint"
   },
   "devDependencies": {
-    "gatsby-cli": "^1.1.22",
-    "prettier": "^1.8.2"
-  }
+    "@ianwremmel/eslint-config-base": "^1.0.0",
+    "@ianwremmel/eslint-config-standard": "^1.1.0",
+    "babel-eslint": "^8.0.2",
+    "eslint": "^4.11.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-mocha": "^4.11.0",
+    "gatsby-cli": "^1.1.22"
+  },
+  "privat": true
 }
