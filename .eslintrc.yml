@@ -1,0 +1,19 @@
+env:
+  es6: true
+  node: true
+extends:
+  - "@ianwremmel/eslint-config-standard"
+  - plugin:react/recommended
+  - plugin:jsx-a11y/recommended
+parser: babel-eslint
+parserOptions:
+  ecmaFeatures:
+    jsx: true
+plugins:
+  - jsx-a11y
+rules:
+  func-style:
+    - error
+    - declaration
+    - allowArrowFunctions: true
+  sort-imports: off
