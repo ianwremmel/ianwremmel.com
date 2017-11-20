@@ -5,6 +5,8 @@ extends:
   - "@ianwremmel/eslint-config-standard"
   - plugin:react/recommended
   - plugin:jsx-a11y/recommended
+globals:
+  graphql: false
 parser: babel-eslint
 parserOptions:
   ecmaFeatures:

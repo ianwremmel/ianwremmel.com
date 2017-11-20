@@ -1,5 +1,14 @@
 module.exports = {
   plugins: [
+    {
+      options: {
+        name: 'src',
+        path: `${__dirname}/src/`
+      },
+      resolve: 'gatsby-source-filesystem'
+    },
+    'gatsby-transformer-sharp',
+    'gatsby-plugin-sharp',
     'gatsby-plugin-catch-links',
     {
       options: {
