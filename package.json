@@ -6,7 +6,10 @@
   "dependencies": {
     "gatsby": "^1.9.118",
     "gatsby-link": "^1.6.28",
-    "gatsby-plugin-react-helmet": "^1.0.8"
+    "gatsby-plugin-react-helmet": "^1.0.8",
+    "prop-types": "^15.6.0",
+    "react": "^16.1.1",
+    "react-helmet": "^5.2.0"
   },
   "keywords": [],
   "license": "MIT",
@@ -16,22 +19,31 @@
     "commitmsg": "npm run --silent lint:commitmsg",
     "develop": "gatsby develop",
     "lint": "npm run --silent lint:js && npm run --silent lint:changelog",
-    "lint:changelog": "conventional-changelog-lint --from origin/master --to HEAD",
-    "lint:commitmsg": "conventional-changelog-lint -e",
-    "lint:eslint": "eslint --ignore --ignore-path .gitignore",
+    "lint:changelog": "commitlint --from origin/master --to HEAD",
+    "lint:commitmsg": "commitlint -e",
+    "lint:eslint": "eslint --fix --ignore --ignore-path .gitignore",
     "lint:js": "npm run --silent lint:eslint -- .",
     "lint:staged": "lint-staged",
     "precommit": "npm run --silent lint:staged",
     "test": "npm run lint"
   },
   "devDependencies": {
+    "@commitlint/cli": "^5.0.1",
+    "@commitlint/config-angular": "^5.0.1",
     "@ianwremmel/eslint-config-base": "^1.0.0",
     "@ianwremmel/eslint-config-standard": "^1.1.0",
     "babel-eslint": "^8.0.2",
     "eslint": "^4.11.0",
     "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
     "eslint-plugin-mocha": "^4.11.0",
-    "gatsby-cli": "^1.1.22"
+    "eslint-plugin-react": "^7.5.1",
+    "gatsby-cli": "^1.1.22",
+    "husky": "^0.14.3",
+    "lint-staged": "^5.0.0"
   },
-  "privat": true
+  "private": true, 
+  "lint-staged": {
+    "*.jsx?": "lint:eslint"
+  }
 }
