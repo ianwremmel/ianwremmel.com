@@ -19,3 +19,7 @@ rules:
     - declaration
     - allowArrowFunctions: true
   sort-imports: off
+  import/no-unassigned-import:
+    - error
+    - allow:
+      - '**/*.css'
