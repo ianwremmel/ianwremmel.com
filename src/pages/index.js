@@ -1,14 +1,13 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import BackgroundImage from '../components/background-image';
+import PageBackgroundImage from '../components/page-background';
 
 import './index.css';
 
 const IndexPage = ({data}) =>
   <main>
-    <BackgroundImage sizes={data.file.childImageSharp.sizes}/>
-
+    <PageBackgroundImage sizes={data.file.childImageSharp.sizes} />
     <article>
       <h1>Ian W. Remmel</h1>
       <h2>Software Engineer in San Francisco</h2>
@@ -40,8 +39,7 @@ const IndexPage = ({data}) =>
         </section>
       </section>
     </article>
-  </main>
-  ;
+  </main>;
 
 IndexPage.propTypes = {data: PropTypes.object.isRequired};
 
