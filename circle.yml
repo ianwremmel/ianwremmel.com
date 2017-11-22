@@ -1,11 +1,13 @@
 restore_cache: &restore_cache
   keys:
-    - node-modules-{{ arch }}-{{ .Environment.CIRCLE_JOB }}-{{ .Branch }}-{{ checksum "package.json" }}
-    - node-modules-{{ arch }}-{{ .Environment.CIRCLE_JOB }}-{{ checksum "package.json" }}
-    - node-modules-{{ arch }}-{{ .Environment.CIRCLE_JOB }}
+    # added the sequence number after node-modules for cache-busting purposes.
+    # it seems the "Rebuild Without Cache" button ha disappeared.
+    - node-modules-1-{{ arch }}-{{ .Environment.CIRCLE_JOB }}-{{ .Branch }}-{{ checksum "package.json" }}
+    - node-modules-1-{{ arch }}-{{ .Environment.CIRCLE_JOB }}-{{ checksum "package.json" }}
+    - node-modules-1-{{ arch }}-{{ .Environment.CIRCLE_JOB }}
 
 save_cache: &save_cache
-  key: node-modules-{{ arch }}-{{ .Environment.CIRCLE_JOB }}-{{ .Branch }}-{{ checksum "package.json" }}
+  key: node-modules-1-{{ arch }}-{{ .Environment.CIRCLE_JOB }}-{{ .Branch }}-{{ checksum "package.json" }}
   paths:
     - node_modules
 
