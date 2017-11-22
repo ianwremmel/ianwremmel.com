@@ -1,4 +1,4 @@
-article {
+.article {
   background-color: white;
   padding: 100px 60px;
 }
@@ -10,6 +10,12 @@ article {
 }
 
 @media(min-width: 800px) {
+  .article {
+    width: 33%;
+
+    z-index: 0;
+  }
+
   .header-image {
     min-height: 100%;
     position: fixed;
@@ -20,15 +26,8 @@ article {
     display: none;
   }
 
-  article {
-    width: 33%;
-
-    z-index: 0;
-  }
-
-  main {
+  .main {
     display: flex;
     justify-content: flex-end;
   }
 }
-

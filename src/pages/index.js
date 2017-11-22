@@ -1,14 +1,18 @@
+import classNames from 'class-names';
+import Image from 'gatsby-image';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import PageBackgroundImage from '../components/page-background';
-
-import './index.css';
+import styles from './index.module.css';
 
 const IndexPage = ({data}) =>
-  <main>
-    <PageBackgroundImage sizes={data.file.childImageSharp.sizes} />
-    <article>
+  <main className={classNames(styles.main)}>
+    <div className={classNames(styles['header-image'])} style={{backgroundImage: `url("${data.file.childImageSharp.sizes.src}")`}}>
+      <div className={classNames(styles['header-image-image'])}>
+        <Image sizes={data.file.childImageSharp.sizes}/>
+      </div>
+    </div>
+    <article className={classNames(styles.article)}>
       <h1>Ian W. Remmel</h1>
       <h2>Software Engineer in San Francisco</h2>
       <section>
