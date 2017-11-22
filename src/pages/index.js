@@ -1,33 +1,15 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import Img from 'gatsby-image';
 
-const IndexPage = (props) => {
-  console.log(props);
-  const {data} = props;
-  return <main style={{
-    display: 'flex',
-    height: '100%',
-    justifyContent: 'flex-end'
-  }}>
-    <Img position="absolute" sizes={data.file.childImageSharp.sizes} style={{
-      height: '100%',
-      left: 0,
-      overflow: 'hidden',
-      position: 'absolute',
-      top: 0,
-      width: '100%',
-      zIndex: -1
-    }}/>
+import BackgroundImage from '../components/background-image';
 
-    <article style={{
-      backgroundColor: 'white',
-      height: '100%',
-      overflow: 'auto',
-      padding: '100px 60px',
-      width: '33%',
-      zIndex: 0
-    }}>
+import './index.css';
+
+const IndexPage = ({data}) =>
+  <main>
+    <BackgroundImage sizes={data.file.childImageSharp.sizes}/>
+
+    <article>
       <h1>Ian W. Remmel</h1>
       <h2>Software Engineer in San Francisco</h2>
       <section>
@@ -58,8 +40,8 @@ const IndexPage = (props) => {
         </section>
       </section>
     </article>
-  </main>;
-};
+  </main>
+  ;
 
 IndexPage.propTypes = {data: PropTypes.object.isRequired};
 

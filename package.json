@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "author": "Ian Remmel <1182361+ianwremmel@users.noreply.github.com>",
   "dependencies": {
-    "gatsby": "^1.9.118",
+    "gatsby": "^1.9.119",
     "gatsby-image": "^1.0.24",
     "gatsby-link": "^1.6.28",
     "gatsby-plugin-catch-links": "^1.0.9",
@@ -13,11 +13,13 @@
     "gatsby-plugin-react-helmet": "^2.0.1",
     "gatsby-plugin-react-next": "^1.0.4",
     "gatsby-plugin-sharp": "^1.6.21",
+    "gatsby-plugin-typography": "^1.7.10",
     "gatsby-source-filesystem": "^1.5.8",
     "gatsby-transformer-sharp": "^1.6.14",
     "prop-types": "^15.6.0",
     "react": "^16.1.1",
-    "react-helmet": "^5.2.0"
+    "react-helmet": "^5.2.0",
+    "typography": "^0.16.6"
   },
   "keywords": [],
   "license": "MIT",
@@ -37,7 +39,7 @@
   },
   "devDependencies": {
     "@commitlint/cli": "^5.0.1",
-    "@commitlint/config-angular": "^5.0.1",
+    "@commitlint/config-angular": "^4.3.0",
     "@ianwremmel/eslint-config-base": "^1.0.0",
     "@ianwremmel/eslint-config-standard": "^1.1.0",
     "babel-eslint": "^8.0.2",
@@ -46,7 +48,7 @@
     "eslint-plugin-jsx-a11y": "^6.0.2",
     "eslint-plugin-mocha": "^4.11.0",
     "eslint-plugin-react": "^7.5.1",
-    "gatsby-cli": "^1.1.22",
+    "gatsby-cli": "^1.1.23",
     "husky": "^0.14.3",
     "lint-staged": "^5.0.0"
   },

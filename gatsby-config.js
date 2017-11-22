@@ -1,5 +1,6 @@
 module.exports = {
   plugins: [
+    'gatsby-plugin-typography',
     {
       options: {
         name: 'src',

@@ -1,0 +1,17 @@
+article {
+  height: 100%;
+  width: 33%;
+  padding: 100px 60px;
+
+  overflow: auto;
+  z-index: 0;
+
+  background-color: white;
+}
+
+main {
+  display: flex;
+  justify-content: flex-end;
+
+  height: 100%;
+}
