@@ -1,15 +1,18 @@
+import classNames from 'class-names';
+import Image from 'gatsby-image';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import BackgroundImage from '../components/background-image';
-
-import './index.css';
+import styles from './index.module.css';
 
 const IndexPage = ({data}) =>
-  <main>
-    <BackgroundImage sizes={data.file.childImageSharp.sizes}/>
-
-    <article>
+  <main className={classNames(styles.main)}>
+    <div className={classNames(styles['header-image'])} style={{backgroundImage: `url("${data.file.childImageSharp.sizes.src}")`}}>
+      <div className={classNames(styles['header-image-image'])}>
+        <Image sizes={data.file.childImageSharp.sizes}/>
+      </div>
+    </div>
+    <article className={classNames(styles.article)}>
       <h1>Ian W. Remmel</h1>
       <h2>Software Engineer in San Francisco</h2>
       <section>
@@ -40,8 +43,7 @@ const IndexPage = ({data}) =>
         </section>
       </section>
     </article>
-  </main>
-  ;
+  </main>;
 
 IndexPage.propTypes = {data: PropTypes.object.isRequired};
 

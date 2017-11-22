@@ -1,0 +1,33 @@
+.article {
+  background-color: white;
+  padding: 100px 60px;
+}
+
+.header-image {
+  background-position: left;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@media(min-width: 800px) {
+  .article {
+    width: 33%;
+
+    z-index: 0;
+  }
+
+  .header-image {
+    min-height: 100%;
+    position: fixed;
+    width: 100%;
+  }
+
+  .header-image-image {
+    display: none;
+  }
+
+  .main {
+    display: flex;
+    justify-content: flex-end;
+  }
+}
