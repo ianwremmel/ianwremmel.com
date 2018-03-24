@@ -2,7 +2,8 @@ const crypto = require('crypto');
 
 const base64url = require('base64url');
 const debug = require('debug')('ianwremmel.com:gatsby-node:github');
-const GitHubAPI = require('github');
+const GitHubAPI = require('@octokit/rest');
+const netrc = require('netrc');
 
 const github = new GitHubAPI();
 if (process.env.GH_TOKEN) {
@@ -12,7 +13,12 @@ if (process.env.GH_TOKEN) {
   });
 }
 else {
-  github.authenticate({type: 'netrc'});
+  const auth = netrc()['api.github.com'];
+  github.authenticate({
+    password: auth.password,
+    type: 'basic',
+    username: auth.login
+  });
 }
 
 /**
@@ -54,7 +60,6 @@ async function fetckPkg(name) {
       repo: name
     });
     debug(`Fetched package.json for github repo ${name}`);
-
   }
   catch (err) {
     debug(`Could not fetch package.json for github repo ${name}`);
