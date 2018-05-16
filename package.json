@@ -5,7 +5,7 @@
   "author": "Ian Remmel <1182361+ianwremmel@users.noreply.github.com>",
   "dependencies": {
     "@octokit/rest": "^15.2.5",
-    "base64url": "^2.0.0",
+    "base64url": "^3.0.0",
     "class-names": "^1.0.0",
     "debug": "^3.1.0",
     "gatsby": "^1.9.119",
