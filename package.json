@@ -18,7 +18,7 @@
     "gatsby-plugin-react-next": "^1.0.4",
     "gatsby-plugin-sharp": "^1.6.44",
     "gatsby-plugin-typography": "^1.7.10",
-    "gatsby-source-filesystem": "^1.5.8",
+    "gatsby-source-filesystem": "^1.5.36",
     "gatsby-transformer-sharp": "^1.6.24",
     "netrc": "^0.1.4",
     "prop-types": "^15.6.0",
