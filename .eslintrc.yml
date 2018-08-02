@@ -18,7 +18,8 @@ rules:
     - error
     - declaration
     - allowArrowFunctions: true
-  sort-imports: off
+  sort-imports:
+  - off
   import/no-unassigned-import:
     - error
     - allow:
