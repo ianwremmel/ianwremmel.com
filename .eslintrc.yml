@@ -6,6 +6,8 @@ extends:
   - "plugin:react/recommended"
   - "plugin:jsx-a11y/recommended"
   - "plugin:react/recommended"
+  - prettier
+  - "prettier/react"
 globals:
   graphql: false
 parser: babel-eslint
