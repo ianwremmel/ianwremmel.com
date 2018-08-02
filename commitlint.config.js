@@ -4,7 +4,7 @@ if (process.env.CIRCLE_BRANCH && process.env.CIRCLE_BRANCH.includes('greenkeeper
 else {
   module.exports = {
     extends: [
-      '@commitlint/config-angular'
+      '@commitlint/config-conventional'
     ]
   };
 }
