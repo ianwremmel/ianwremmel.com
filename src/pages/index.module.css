@@ -1,6 +1,11 @@
+.main {
+  height: 100%;
+}
+
 .article {
   background-color: white;
-  padding: 100px 60px;
+  padding: 50px;
+  overflow: auto;
 }
 
 .header-image {
@@ -9,11 +14,12 @@
   background-size: cover;
 }
 
-@media(min-width: 800px) {
+@media (min-width: 800px) {
   .article {
-    width: 33%;
+    width: 33.333333%;
 
     z-index: 0;
+    height: 100%;
   }
 
   .header-image {
@@ -30,4 +36,30 @@
     display: flex;
     justify-content: flex-end;
   }
+}
+
+.work ul {
+  list-style-type: none;
+  margin: 0;
+}
+
+.education,
+.work {
+  flex: 1 1 50%;
+}
+
+.education ul {
+  list-style-type: none;
+  margin: 0;
+}
+
+.education-and-work {
+  display: flex;
+}
+
+.social-links {
+  list-style-type: none;
+  margin: 0;
+  display: flex;
+  justify-content: space-around;
 }
