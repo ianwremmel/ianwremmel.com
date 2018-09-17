@@ -7,7 +7,7 @@
     "@octokit/rest": "^15.5.1",
     "base64url": "^3.0.0",
     "class-names": "^1.0.0",
-    "debug": "^3.1.0",
+    "debug": "^4.0.1",
     "gatsby": "^1.9.261",
     "gatsby-image": "^1.0.51",
     "gatsby-link": "^1.6.44",
