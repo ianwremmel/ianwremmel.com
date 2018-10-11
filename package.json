@@ -40,7 +40,7 @@
     "test": "npm run lint"
   },
   "devDependencies": {
-    "@commitlint/cli": "^6.2.0",
+    "@commitlint/cli": "^7.2.0",
     "@commitlint/config-conventional": "^7.0.1",
     "@ianwremmel/eslint-config-base": "^1.0.0",
     "@ianwremmel/eslint-config-standard": "^1.1.0",
