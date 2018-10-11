@@ -3,8 +3,11 @@ env:
   node: true
 extends:
   - "@ianwremmel/eslint-config-standard"
-  - plugin:react/recommended
-  - plugin:jsx-a11y/recommended
+  - "plugin:react/recommended"
+  - "plugin:jsx-a11y/recommended"
+  - "plugin:react/recommended"
+  - prettier
+  - "prettier/react"
 globals:
   graphql: false
 parser: babel-eslint
@@ -13,12 +16,14 @@ parserOptions:
     jsx: true
 plugins:
   - jsx-a11y
+  - react
 rules:
   func-style:
     - error
     - declaration
     - allowArrowFunctions: true
-  sort-imports: off
+  sort-imports:
+  - off
   import/no-unassigned-import:
     - error
     - allow:

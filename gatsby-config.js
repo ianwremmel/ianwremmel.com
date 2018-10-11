@@ -23,5 +23,5 @@ module.exports = {
     // 'gatsby-plugin-netlify' should be last in the array
     'gatsby-plugin-netlify'
   ],
-  siteMetadata: {title: 'Gatsby Default Starter'}
+  siteMetadata: {title: 'Ian W. Remmel'}
 };
