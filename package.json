@@ -7,7 +7,7 @@
     "class-names": "^1.0.0",
     "debug": "^3.1.0",
     "gatsby": "^1.9.261",
-    "gatsby-image": "^1.0.51",
+    "gatsby-image": "^2.0.9",
     "gatsby-link": "^1.6.44",
     "gatsby-plugin-catch-links": "^1.0.22",
     "gatsby-plugin-google-analytics": "^1.0.31",
