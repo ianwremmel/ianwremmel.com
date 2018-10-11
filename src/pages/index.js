@@ -26,17 +26,29 @@ const IndexPage = ({data}) => (
       <section>
         <ul className={styles['social-links']}>
           <li>
-            <a href="https://www.twitter.com/ianwremmel">
+            <a
+              href="https://www.twitter.com/ianwremmel"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
               <img alt="Twitter Logo" src={twitter} title="Twitter" />
             </a>
           </li>
           <li>
-            <a href="https://github.com/ianwremmel">
+            <a
+              href="https://github.com/ianwremmel"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
               <img alt="GitHub Logo" src={github} title="GitHub" />
             </a>
           </li>
           <li>
-            <a href="https://www.linkedin.com/pub/ian-remmel/3/a32/208">
+            <a
+              href="https://www.linkedin.com/pub/ian-remmel/3/a32/208"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
               <img alt="LinkedIn Logo" src={linkedin} title="LinkedIn" />
             </a>
           </li>
@@ -67,7 +79,13 @@ const IndexPage = ({data}) => (
           </h3>
           <ul className="list-group">
             <li className="list-group-item">
-              <a href="https://www.urbandoor.com/">UrbanDoor</a>
+              <a
+                href="https://www.urbandoor.com/"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                UrbanDoor
+              </a>
             </li>
           </ul>
         </section>
