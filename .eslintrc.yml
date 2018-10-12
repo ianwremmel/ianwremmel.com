@@ -8,8 +8,6 @@ extends:
   - "plugin:react/recommended"
   - prettier
   - "prettier/react"
-globals:
-  graphql: false
 parser: babel-eslint
 parserOptions:
   ecmaFeatures:
