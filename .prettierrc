@@ -1,7 +1,12 @@
-arrowParens: always
-bracketSpacing: false
-singleQuote: true
-semi: true
-useTabs: false
-tabWidth: 2
-trailingComma: none
+{
+  "arrowParens": "always",
+  "printWidth": 80,
+  "tabWidth": 2,
+  "useTabs": false,
+  "semi": true,
+  "singleQuote": true,
+  "trailingComma": "none",
+  "bracketSpacing": false,
+  "jsxBracketSameLine": false,
+  "proseWrap": "always"
+}

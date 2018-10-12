@@ -1,7 +1,9 @@
 import classNames from 'class-names';
+import {graphql} from 'gatsby';
 import Image from 'gatsby-image';
 import PropTypes from 'prop-types';
 import React from 'react';
+import Helmet from 'react-helmet';
 
 import twitter from '../content/iconmonstr-twitter-5.svg';
 import github from '../content/iconmonstr-github-5.svg';
@@ -11,12 +13,17 @@ import styles from './index.module.css';
 
 const IndexPage = ({data}) => (
   <main className={classNames(styles.main)}>
+    <Helmet>
+      <title>Ian W. Remmel | About</title>
+    </Helmet>
     <div
-      className={classNames(styles['header-image'])}
-      style={{backgroundImage: `url("${data.file.childImageSharp.sizes.src}")`}}
+      className={classNames(styles.headerImage)}
+      style={{
+        backgroundImage: `url("${data.file.childImageSharp.fluid.src}")`
+      }}
     >
-      <div className={classNames(styles['header-image-image'])}>
-        <Image sizes={data.file.childImageSharp.sizes} />
+      <div className={classNames(styles.headerImageImage)}>
+        <Image fluid={data.file.childImageSharp.fluid} />
       </div>
     </div>
     <article className={classNames(styles.article)}>
@@ -24,7 +31,7 @@ const IndexPage = ({data}) => (
       <h2>Software Engineer in San Francisco</h2>
 
       <section>
-        <ul className={styles['social-links']}>
+        <ul className={styles.socialLinks}>
           <li>
             <a
               href="https://www.twitter.com/ianwremmel"
@@ -72,7 +79,7 @@ const IndexPage = ({data}) => (
           a software engineer in the Cloud Collaboration Technology Group.
         </p>
       </section>
-      <section className={styles['education-and-work']}>
+      <section className={styles.educationAndWork}>
         <section className={styles.work}>
           <h3>
             <small className="text-muted">Work</small>
@@ -119,11 +126,11 @@ IndexPage.propTypes = {data: PropTypes.object.isRequired};
 export default IndexPage;
 
 export const query = graphql`
-  query AboutMeBackground {
+  {
     file(relativePath: {eq: "content/IMG_2774.JPG"}) {
       childImageSharp {
-        sizes(maxWidth: 1920) {
-          ...GatsbyImageSharpSizes_tracedSVG
+        fluid(maxWidth: 1920) {
+          ...GatsbyImageSharpFluid_tracedSVG
         }
       }
     }

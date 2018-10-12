@@ -14,11 +14,11 @@ module.exports = {
     {
       options: {
         anonymize: true,
-        trackingId: ' UA-7509764-1'
+        trackingId: 'UA-7509764-1'
       },
       resolve: 'gatsby-plugin-google-analytics'
     },
-    'gatsby-plugin-react-next',
+    'gatsby-plugin-postcss',
     'gatsby-plugin-react-helmet',
     // 'gatsby-plugin-netlify' should be last in the array
     'gatsby-plugin-netlify'

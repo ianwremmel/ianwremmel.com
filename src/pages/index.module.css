@@ -1,5 +1,5 @@
 .main {
-  height: 100%;
+  height: 100vh;
 }
 
 .article {
@@ -8,7 +8,7 @@
   overflow: auto;
 }
 
-.header-image {
+.headerImage {
   background-position: left;
   background-repeat: no-repeat;
   background-size: cover;
@@ -22,13 +22,13 @@
     height: 100%;
   }
 
-  .header-image {
+  .headerImage {
     min-height: 100%;
     position: fixed;
     width: 100%;
   }
 
-  .header-image-image {
+  .headerImageImage {
     display: none;
   }
 
@@ -53,11 +53,11 @@
   margin: 0;
 }
 
-.education-and-work {
+.educationAndWork {
   display: flex;
 }
 
-.social-links {
+.socialLinks {
   list-style-type: none;
   margin: 0;
   display: flex;

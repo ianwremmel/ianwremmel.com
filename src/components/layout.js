@@ -13,7 +13,7 @@ const TemplateWrapper = ({children}) => (
         crossOrigin="anonymous"
       />
     </Helmet>
-    {children()}
+    {children}
   </div>
 );
 
