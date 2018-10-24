@@ -17,7 +17,7 @@
     "gatsby-plugin-sharp": "^2.0.8",
     "gatsby-plugin-typography": "^2.2.0",
     "gatsby-source-filesystem": "^2.0.5",
-    "gatsby-transformer-sharp": "^2.1.4",
+    "gatsby-transformer-sharp": "^2.1.5",
     "postcss-import": "^12.0.1",
     "postcss-preset-env": "^6.2.0",
     "postcss-reporter": "^6.0.0",
