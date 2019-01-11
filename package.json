@@ -8,7 +8,7 @@
     "debug": "^4.1.1",
     "gatsby": "^2.0.91",
     "gatsby-cli": "^2.4.8",
-    "gatsby-image": "^2.0.25",
+    "gatsby-image": "^2.0.26",
     "gatsby-plugin-catch-links": "^2.0.9",
     "gatsby-plugin-google-analytics": "^2.0.9",
     "gatsby-plugin-netlify": "^2.0.6",
