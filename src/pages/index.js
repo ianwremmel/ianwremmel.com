@@ -1,4 +1,4 @@
-import classNames from 'class-names';
+import classNames from 'classnames';
 import {graphql} from 'gatsby';
 import Image from 'gatsby-image';
 import PropTypes from 'prop-types';
