@@ -3,10 +3,10 @@ import React from 'react';
 import {Card} from '../components/card';
 import {Column} from '../components/column';
 import {OutboundLink} from '../components/outbound-link';
-import email from '../content/iconmonstr-email-11.svg';
-import twitter from '../content/iconmonstr-twitter-5.svg';
-import github from '../content/iconmonstr-github-5.svg';
-import linkedin from '../content/iconmonstr-linkedin-5.svg';
+import email from '../assets/iconmonstr-email-11.svg';
+import twitter from '../assets/iconmonstr-twitter-5.svg';
+import github from '../assets/iconmonstr-github-5.svg';
+import linkedin from '../assets/iconmonstr-linkedin-5.svg';
 
 const UrbanDoorCard = () => (
   <Card className="h-100" title="UrbanDoor" titleTag="h2">

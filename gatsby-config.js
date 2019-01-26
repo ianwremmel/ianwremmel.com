@@ -4,8 +4,8 @@ module.exports = {
   plugins: [
     {
       options: {
-        name: 'src',
-        path: `${__dirname}/src/`
+        name: 'assets',
+        path: `${__dirname}/src/assets`
       },
       resolve: 'gatsby-source-filesystem'
     },
