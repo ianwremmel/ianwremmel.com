@@ -9,6 +9,10 @@ extends:
 parserOptions:
   ecmaFeatures:
     jsx: true
+overrides:
+  - files: ['!src/**/*.js']
+    parserOptions:
+      sourceType: script
 plugins:
   - jsx-a11y
   - react
