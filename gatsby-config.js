@@ -1,6 +1,5 @@
 module.exports = {
   plugins: [
-    'gatsby-plugin-typography',
     {
       options: {
         name: 'src',
@@ -18,6 +17,7 @@ module.exports = {
       },
       resolve: 'gatsby-plugin-google-analytics'
     },
+    'gatsby-plugin-sass',
     'gatsby-plugin-postcss',
     'gatsby-plugin-react-helmet',
     // 'gatsby-plugin-netlify' should be last in the array
