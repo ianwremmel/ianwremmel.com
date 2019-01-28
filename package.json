@@ -6,7 +6,7 @@
   "dependencies": {
     "class-names": "^1.0.0",
     "debug": "^4.1.1",
-    "gatsby": "^2.0.99",
+    "gatsby": "^2.0.100",
     "gatsby-cli": "^2.4.8",
     "gatsby-image": "^2.0.28",
     "gatsby-plugin-catch-links": "^2.0.9",
