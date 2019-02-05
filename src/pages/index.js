@@ -1,4 +1,5 @@
 import React from 'react';
+import {StaticQuery, graphql, Link} from 'gatsby';
 
 import {Card} from '../components/card';
 import {Column} from '../components/column';
@@ -8,9 +9,10 @@ import twitter from '../assets/iconmonstr-twitter-5.svg';
 import github from '../assets/iconmonstr-github-5.svg';
 import linkedin from '../assets/iconmonstr-linkedin-5.svg';
 import Layout from '../components/layout';
+import {H} from '../components/heading';
 
 const UrbanDoorCard = () => (
-  <Card title="UrbanDoor">
+  <Card className="h-100" title="UrbanDoor">
     <p className="card-text">
       I&apos;m a Senior Software Engineer splitting my time between frontend and
       devops. My mission is Happiness Through Engineering.
@@ -22,7 +24,7 @@ const UrbanDoorCard = () => (
 );
 
 const SideProjectsCard = () => (
-  <Card title="Side Projects">
+  <Card className="h-100" title="Side Projects">
     <p className="lead">
       I tend to go off a bit about my side projects. Though usually more about
       the tech than the actual project.
@@ -32,8 +34,54 @@ const SideProjectsCard = () => (
   </Card>
 );
 
+const lastPostQuery = graphql`
+  {
+    allMarkdownRemark(
+      sort: {fields: [frontmatter___date], order: DESC}
+      limit: 1
+    ) {
+      edges {
+        node {
+          excerpt
+
+          fields {
+            slug
+          }
+          frontmatter {
+            title
+          }
+        }
+      }
+    }
+  }
+`;
+
+const BlogPostsCard = () => (
+  <StaticQuery
+    query={lastPostQuery}
+    render={({
+      allMarkdownRemark: {
+        edges: [
+          {
+            node: {
+              excerpt,
+              fields: {slug},
+              frontmatter: {date, title}
+            }
+          }
+        ]
+      }
+    }) => (
+      <Card className="h-100" title={title} subtitle={date}>
+        <p>{excerpt}</p>
+        <Link to={`/posts${slug}`}>Read more...</Link>
+      </Card>
+    )}
+  />
+);
+
 const PrivateKeyCard = () => (
-  <Card className="h-100" title="Public GPG Key" titleTag="h2">
+  <Card className="h-100" title="Public GPG Key">
     <p className="card-text">
       Verified at{' '}
       <a href="https://keybase.io/ianwremmel">keybase.io/ianwremmel</a>
@@ -44,11 +92,11 @@ const PrivateKeyCard = () => (
   </Card>
 );
 
-const BusinessCardPage = () => (
-  <div>
+const LandingPage = () => (
+  <Layout>
     <div className="jumbotron">
       <div className="container">
-        <h1>Hi! I&apos;m Ian Remmel</h1>
+        <H>Hi! I&apos;m Ian Remmel</H>
         <p className="lead">
           If you landed on this page, you probably met me at conference or
           meetup. Maybe I was talking about what we do at UrbanDoor or I was
@@ -83,16 +131,18 @@ const BusinessCardPage = () => (
           <SideProjectsCard />
         </Column>
       </div>
-    </div>
 
-    <div className="container">
       <div className="row mb-4">
         <Column>
           <PrivateKeyCard />
         </Column>
+
+        <Column>
+          <BlogPostsCard />
+        </Column>
       </div>
     </div>
-  </div>
+  </Layout>
 );
 
-export default BusinessCardPage;
+export default LandingPage;
