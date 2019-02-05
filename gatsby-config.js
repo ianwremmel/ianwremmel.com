@@ -1,10 +1,11 @@
+'use strict';
+
 module.exports = {
   plugins: [
-    'gatsby-plugin-typography',
     {
       options: {
-        name: 'src',
-        path: `${__dirname}/src/`
+        name: 'assets',
+        path: `${__dirname}/src/assets`
       },
       resolve: 'gatsby-source-filesystem'
     },
@@ -18,6 +19,7 @@ module.exports = {
       },
       resolve: 'gatsby-plugin-google-analytics'
     },
+    'gatsby-plugin-sass',
     'gatsby-plugin-postcss',
     'gatsby-plugin-react-helmet',
     // 'gatsby-plugin-netlify' should be last in the array
