@@ -13,6 +13,9 @@ overrides:
   - files: ['!src/**/*.js']
     parserOptions:
       sourceType: script
+  - files: ['gatsby-*.js']
+    rules:
+      no-restricted-syntax: off
 plugins:
   - jsx-a11y
   - react
@@ -23,3 +26,9 @@ rules:
         - '**/*.css'
         - '**/*.scss'
   require-jsdoc: off
+  quotes:
+    - error
+    - single
+settings:
+  react:
+    version: 'detect'
