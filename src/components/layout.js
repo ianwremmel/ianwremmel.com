@@ -2,8 +2,6 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import Helmet from 'react-helmet';
 
-import '../scss/index.scss';
-
 const TemplateWrapper = ({children}) => (
   <div>
     <Helmet>
