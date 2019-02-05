@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import {Link, graphql} from 'gatsby';
 
 import Layout from '../components/layout';
+import {H} from '../components/heading';
 
 class PostTemplate extends React.Component {
   render() {
@@ -12,7 +13,7 @@ class PostTemplate extends React.Component {
 
     return (
       <Layout title={siteTitle}>
-        <h1>{post.frontmatter.title}</h1>
+        <H>{post.frontmatter.title}</H>
         <p>{post.frontmatter.date}</p>
         <div dangerouslySetInnerHTML={{__html: post.html}} />
 

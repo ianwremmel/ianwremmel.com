@@ -2,31 +2,23 @@ import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-export const Card = ({
-  title,
-  titleTag: TitleTag = 'h5',
-  subtitle,
-  subtitleTag: SubtitleTag = 'h6',
-  className,
-  children,
-  ...rest
-}) => (
-  <section className={classNames(className, 'card')} {...rest}>
-    <div className="card-body">
-      {title && <TitleTag className="card-title">{title}</TitleTag>}
-      {subtitle && (
-        <SubtitleTag className="card-subtitle">{subtitle}</SubtitleTag>
-      )}
-      {children}
-    </div>
-  </section>
+import {H, Section} from './heading';
+
+export const Card = ({title, subtitle, className, children, ...rest}) => (
+  <Section>
+    <section className={classNames(className, 'card')} {...rest}>
+      <div className="card-body">
+        {title && <H className="card-title">{title}</H>}
+        {subtitle && <p className="card-subtitle">{subtitle}</p>}
+        {children}
+      </div>
+    </section>
+  </Section>
 );
 
 Card.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   subtitle: PropTypes.string,
-  subtitleTag: PropTypes.string,
-  title: PropTypes.string,
-  titleTag: PropTypes.string
+  title: PropTypes.string
 };

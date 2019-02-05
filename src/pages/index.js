@@ -7,9 +7,10 @@ import email from '../assets/iconmonstr-email-11.svg';
 import twitter from '../assets/iconmonstr-twitter-5.svg';
 import github from '../assets/iconmonstr-github-5.svg';
 import linkedin from '../assets/iconmonstr-linkedin-5.svg';
+import Layout from '../components/layout';
 
 const UrbanDoorCard = () => (
-  <Card className="h-100" title="UrbanDoor" titleTag="h2">
+  <Card title="UrbanDoor">
     <p className="card-text">
       I&apos;m a Senior Software Engineer splitting my time between frontend and
       devops. My mission is Happiness Through Engineering.
@@ -21,7 +22,7 @@ const UrbanDoorCard = () => (
 );
 
 const SideProjectsCard = () => (
-  <Card className="h-100" title="Side Projects" titleTag="h2">
+  <Card title="Side Projects">
     <p className="lead">
       I tend to go off a bit about my side projects. Though usually more about
       the tech than the actual project.
