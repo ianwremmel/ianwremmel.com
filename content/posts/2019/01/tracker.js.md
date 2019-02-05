@@ -37,4 +37,4 @@ To deal with that issue, I've written a short JavaScript file which does with
 minimal dependencies what I had been doing through a handful of outdated gems
 and a much more complex than I needed Docker setup.
 
-https://gist.github.com/ianwremmel/8cc02e56353e65a16617792bc14d3613
+`gist:ianwremmel/8cc02e56353e65a16617792bc14d3613#tracker.js`
