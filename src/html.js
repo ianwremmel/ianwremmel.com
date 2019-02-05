@@ -3,10 +3,8 @@ import PropTypes from 'prop-types';
 
 // The only meaningful change here was the removal of the noscript tags
 export default function HTML(props) {
-  // Just to make the linter happy
-  const {lang, ...rest} = props.htmlAttributes;
   return (
-    <html lang={lang} {...rest}>
+    <html lang="en" {...props.htmlAttributes}>
       <head>
         <meta charSet="utf-8" />
         <meta httpEquiv="x-ua-compatible" content="ie=edge" />
@@ -19,7 +17,7 @@ export default function HTML(props) {
       <body {...props.bodyAttributes}>
         {props.preBodyComponents}
         <div
-          key={`body`}
+          key={'body'}
           id="___gatsby"
           dangerouslySetInnerHTML={{__html: props.body}}
         />
@@ -33,9 +31,7 @@ HTML.propTypes = {
   body: PropTypes.string,
   bodyAttributes: PropTypes.object,
   headComponents: PropTypes.array,
-  htmlAttributes: PropTypes.shape({
-    lang: PropTypes.string.isRequired
-  }),
+  htmlAttributes: PropTypes.object,
   postBodyComponents: PropTypes.array,
   preBodyComponents: PropTypes.array
 };
