@@ -8,7 +8,7 @@
     "classnames": "^2.2.6",
     "debug": "^4.1.1",
     "gatsby": "^2.13.46",
-    "gatsby-cli": "^2.7.22",
+    "gatsby-cli": "^2.7.26",
     "gatsby-image": "^2.2.8",
     "gatsby-plugin-catch-links": "^2.1.2",
     "gatsby-plugin-google-analytics": "^2.1.6",
