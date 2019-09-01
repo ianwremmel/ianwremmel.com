@@ -12,7 +12,7 @@
     "gatsby-image": "^2.2.15",
     "gatsby-plugin-catch-links": "^2.1.7",
     "gatsby-plugin-google-analytics": "^2.1.12",
-    "gatsby-plugin-netlify": "^2.1.10",
+    "gatsby-plugin-netlify": "^2.1.11",
     "gatsby-plugin-postcss": "^2.1.5",
     "gatsby-plugin-react-helmet": "^3.1.5",
     "gatsby-plugin-sass": "^2.1.12",
