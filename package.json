@@ -7,7 +7,7 @@
     "bootstrap": "^4.3.1",
     "classnames": "^2.2.6",
     "debug": "^4.1.1",
-    "gatsby": "^2.15.3",
+    "gatsby": "^2.15.4",
     "gatsby-cli": "^2.7.43",
     "gatsby-image": "^2.2.16",
     "gatsby-plugin-catch-links": "^2.1.7",
