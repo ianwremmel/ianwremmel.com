@@ -16,7 +16,7 @@
     "gatsby-plugin-postcss": "^2.1.10",
     "gatsby-plugin-react-helmet": "^3.1.10",
     "gatsby-plugin-sass": "^2.1.17",
-    "gatsby-plugin-sharp": "^2.2.28",
+    "gatsby-plugin-sharp": "^2.2.37",
     "gatsby-source-filesystem": "^2.1.36",
     "gatsby-transformer-sharp": "^2.2.20",
     "node-sass": "^4.13.0",
