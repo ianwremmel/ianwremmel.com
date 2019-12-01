@@ -13,7 +13,7 @@
     "gatsby-plugin-catch-links": "^2.1.16",
     "gatsby-plugin-google-analytics": "^2.1.25",
     "gatsby-plugin-netlify": "^2.1.24",
-    "gatsby-plugin-postcss": "^2.1.14",
+    "gatsby-plugin-postcss": "^2.1.16",
     "gatsby-plugin-react-helmet": "^3.1.14",
     "gatsby-plugin-sass": "^2.1.24",
     "gatsby-plugin-sharp": "^2.3.4",
