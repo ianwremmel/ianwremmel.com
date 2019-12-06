@@ -19,25 +19,25 @@ const IndexPage = () => (
           href="https://www.twitter.com/ianwremmel"
           title="Follow me on Twitter"
         >
-          <img alt="Twitter Logo" src={twitter} />
+          <img alt="" src={twitter} />
         </OutboundLink>
 
         <OutboundLink
           href="https://github.com/ianwremmel"
           title="My GitHub profile"
         >
-          <img alt="GitHub Logo" src={github} />
+          <img alt="" src={github} />
         </OutboundLink>
 
         <OutboundLink
           href="https://www.linkedin.com/pub/ian-remmel/3/a32/208"
           title="That thing recruiters use to spread spam"
         >
-          <img alt="LinkedIn Logo" src={linkedin} />
+          <img alt="" src={linkedin} />
         </OutboundLink>
 
         <a href="mailto:hello@ianwremmel.com" title="Send me an email">
-          <img alt="Email Icon" src={email} />
+          <img alt="" src={email} />
         </a>
       </div>
 
