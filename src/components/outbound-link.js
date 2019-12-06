@@ -8,5 +8,6 @@ export const OutboundLink = ({children, href, ...rest}) => (
 
 OutboundLink.propTypes = {
   children: PropTypes.node.isRequired,
-  href: PropTypes.string.isRequired
+  href: PropTypes.string.isRequired,
+  title: PropTypes.string
 };

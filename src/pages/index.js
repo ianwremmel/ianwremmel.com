@@ -1,97 +1,75 @@
 import React from 'react';
 
-import {Card} from '../components/card';
-import {Column} from '../components/column';
+import Layout from '../components/layout';
+import SEO from '../components/seo';
 import {OutboundLink} from '../components/outbound-link';
-import email from '../assets/iconmonstr-email-11.svg';
-import twitter from '../assets/iconmonstr-twitter-5.svg';
-import github from '../assets/iconmonstr-github-5.svg';
-import linkedin from '../assets/iconmonstr-linkedin-5.svg';
+import email from '../assets/mail.svg';
+import twitter from '../assets/twitter.svg';
+import github from '../assets/github.svg';
+import linkedin from '../assets/linkedin.svg';
 
-const UrbanDoorCard = () => (
-  <Card className="h-100" title="UrbanDoor" titleTag="h2">
-    <p className="card-text">
-      I&apos;m a Senior Software Engineer splitting my time between frontend and
-      devops. My mission is Happiness Through Engineering.
-    </p>
-    <a className="card-link" href="https://www.urbandoor.com/">
-      Check us out!
-    </a>
-  </Card>
-);
+import styles from './index.module.scss';
 
-const SideProjectsCard = () => (
-  <Card className="h-100" title="Side Projects" titleTag="h2">
-    <p className="lead">
-      I tend to go off a bit about my side projects. Though usually more about
-      the tech than the actual project.
-    </p>
-
-    <OutboundLink href="https://www.relayhook.io">relayhook.io</OutboundLink>
-  </Card>
-);
-
-const PrivateKeyCard = () => (
-  <Card className="h-100" title="Public GPG Key" titleTag="h2">
-    <p className="card-text">
-      Verified at{' '}
-      <a href="https://keybase.io/ianwremmel">keybase.io/ianwremmel</a>
-    </p>
-    <p className="card-text">
-      8786 E221 4560 8429 2781 B327 C9DA 1EE9 CCF2 1B28
-    </p>
-  </Card>
-);
-
-const BusinessCardPage = () => (
-  <div>
-    <div className="jumbotron">
-      <div className="container">
-        <h1>Hi! I&apos;m Ian Remmel</h1>
-        <p className="lead">
-          If you landed on this page, you probably met me at conference or
-          meetup. Maybe I was talking about what we do at UrbanDoor or I was
-          excited about technology I&apos;m playing with in my side projects.
-        </p>
-
-        <OutboundLink href="https://www.twitter.com/ianwremmel">
-          <img alt="Twitter Logo" src={twitter} title="Twitter" />
+const IndexPage = () => (
+  <Layout>
+    <SEO title="Home" />
+    <div className={styles.container}>
+      <div className={styles.socialRow}>
+        <OutboundLink
+          href="https://www.twitter.com/ianwremmel"
+          title="Follow me on Twitter"
+        >
+          <img alt="" src={twitter} />
         </OutboundLink>
 
-        <OutboundLink href="https://github.com/ianwremmel">
-          <img alt="GitHub Logo" src={github} title="GitHub" />
+        <OutboundLink
+          href="https://github.com/ianwremmel"
+          title="My GitHub profile"
+        >
+          <img alt="" src={github} />
         </OutboundLink>
 
-        <OutboundLink href="https://www.linkedin.com/pub/ian-remmel/3/a32/208">
-          <img alt="LinkedIn Logo" src={linkedin} title="LinkedIn" />
+        <OutboundLink
+          href="https://www.linkedin.com/pub/ian-remmel/3/a32/208"
+          title="That thing recruiters use to spread spam"
+        >
+          <img alt="" src={linkedin} />
         </OutboundLink>
 
-        <a href="mailto:hello@ianwremmel.com">
-          <img alt="Email Icon" src={email} title="Email Me" />
+        <a href="mailto:hello@ianwremmel.com" title="Send me an email">
+          <img alt="" src={email} />
         </a>
       </div>
-    </div>
 
-    <div className="container">
-      <div className="row mb-4">
-        <Column>
-          <UrbanDoorCard />
-        </Column>
+      <div className={styles.headingRow}>
+        <h1>Hi! I&apos;m Ian Remmel.</h1>
+      </div>
 
-        <Column>
-          <SideProjectsCard />
-        </Column>
+      <div className={styles.bodyRow}>
+        <p>
+          If you landed here, you probably met me at a conference or a meetup.
+          Maybe I was talking about{' '}
+          <a
+            href="https://www.linkedin.com/in/ianwremmel/"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            what I do at work
+          </a>
+          , or I was excited about something I&apos;m doing with one of my side
+          projects (probably{' '}
+          <a
+            href="https://www.check-run-reporter.com/?utm_source=https%3A%2F%2Fwww.ianwremmel.com&utm_medium=website&utm_campaign=none"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            check-run-reporter.com
+          </a>
+          ).
+        </p>
       </div>
     </div>
-
-    <div className="container">
-      <div className="row mb-4">
-        <Column>
-          <PrivateKeyCard />
-        </Column>
-      </div>
-    </div>
-  </div>
+  </Layout>
 );
 
-export default BusinessCardPage;
+export default IndexPage;
