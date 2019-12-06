@@ -1,22 +1,19 @@
-import PropTypes from 'prop-types';
+/**
+ * Layout component that queries for data
+ * with Gatsby's useStaticQuery component
+ *
+ * See: https://www.gatsbyjs.org/docs/use-static-query/
+ */
+
 import React from 'react';
-import Helmet from 'react-helmet';
+import PropTypes from 'prop-types';
 
-const TemplateWrapper = ({children}) => (
-  <div>
-    <Helmet>
-      <title>Ian W. Remmel | About</title>
-      <link
-        rel="stylesheet"
-        href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-        crossOrigin="anonymous"
-      />
-    </Helmet>
-    {children}
-  </div>
-);
+const Layout = ({children}) => {
+  return <main>{children}</main>;
+};
 
-TemplateWrapper.propTypes = {children: PropTypes.func};
+Layout.propTypes = {
+  children: PropTypes.node.isRequired
+};
 
-export default TemplateWrapper;
+export default Layout;

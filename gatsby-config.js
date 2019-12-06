@@ -2,6 +2,7 @@
 
 module.exports = {
   plugins: [
+    'gatsby-plugin-react-helmet',
     {
       options: {
         name: 'assets',
@@ -21,9 +22,12 @@ module.exports = {
     },
     'gatsby-plugin-sass',
     'gatsby-plugin-postcss',
-    'gatsby-plugin-react-helmet',
     // 'gatsby-plugin-netlify' should be last in the array
     'gatsby-plugin-netlify'
   ],
-  siteMetadata: {title: 'Ian W. Remmel'}
+  siteMetadata: {
+    author: 'Ian W. Remmel',
+    description: '',
+    title: 'Ian W. Remmel'
+  }
 };

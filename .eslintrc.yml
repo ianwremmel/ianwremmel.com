@@ -23,3 +23,9 @@ rules:
         - '**/*.css'
         - '**/*.scss'
   require-jsdoc: off
+settings:
+  react:
+    version: 'detect'
+  linkComonents:
+    - name: 'Link'
+      linkAttribute: 'to'
