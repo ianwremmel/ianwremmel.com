@@ -1,0 +1,16 @@
+@import url('https://use.typekit.net/rmo2hrb.css');
+
+$green: #2a5e61;
+
+$body-color: $green;
+
+$font-family-sans-serif: proxima-nova, -apple-system, BlinkMacSystemFont,
+  'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif,
+  'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+$font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas,
+  'Liberation Mono', 'Courier New', monospace;
+$font-family-base: $font-family-sans-serif;
+$headings-font-weight: bold;
+$headings-line-height: 1.2;
+
+@import 'node_modules/bootstrap/scss/bootstrap.scss';
