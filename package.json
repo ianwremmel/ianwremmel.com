@@ -24,7 +24,8 @@
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-helmet": "^6.1.0"
+    "react-helmet": "^6.1.0",
+    "snyk": "^1.359.0"
   },
   "keywords": [],
   "license": "MIT",
@@ -36,7 +37,9 @@
     "lint:changelog": "commitlint --from origin/master --to HEAD",
     "lint:js": "npm run --silent eslint -- .",
     "start": "gatsby develop",
-    "test": "npm run lint"
+    "test": "npm run lint",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.3.5",
@@ -65,5 +68,6 @@
       "commit-msg": "commitlint -e",
       "pre-commit": "lint-staged"
     }
-  }
+  },
+  "snyk": true
 }
