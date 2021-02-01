@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "author": "Ian Remmel <1182361+ianwremmel@users.noreply.github.com>",
   "dependencies": {
-    "bootstrap": "^4.5.3",
+    "bootstrap": "^4.6.0",
     "gatsby": "^2.29.3",
     "gatsby-cli": "^2.18.0",
     "gatsby-image": "^2.6.0",
