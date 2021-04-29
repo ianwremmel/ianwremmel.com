@@ -1,0 +1,25 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: monthly
+    time: "13:00"
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: gatsby
+    versions:
+    - 2.32.8
+  - dependency-name: "@commitlint/cli"
+    versions:
+    - 11.0.0
+  - dependency-name: gatsby-transformer-sharp
+    versions:
+    - 2.11.0
+  - dependency-name: gatsby-plugin-sharp
+    versions:
+    - 2.13.1
+    - 2.13.4
+  - dependency-name: "@commitlint/config-conventional"
+    versions:
+    - 11.0.0
