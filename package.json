@@ -53,7 +53,7 @@
     "eslint-plugin-mocha": "^5.3.0",
     "eslint-plugin-prettier": "^3.3.1",
     "husky": "^5.1.2",
-    "lint-staged": "^10.5.2",
+    "lint-staged": "^10.5.4",
     "prettier": "^1.19.1"
   },
   "private": true,
