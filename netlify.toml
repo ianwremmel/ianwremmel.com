@@ -1,0 +1,9 @@
+[build]
+publish = "out/"
+command = "npm run build"
+environment = { NPM_VERSION = "8" }
+
+[[redirects]]
+from = "/business-card"
+to = "/"
+status = 302

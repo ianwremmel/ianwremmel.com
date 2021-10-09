@@ -1,43 +1,35 @@
-import React from 'react';
-
-import Layout from '../components/layout';
-import SEO from '../components/seo';
+import {Layout} from '../components/layout';
 import {OutboundLink} from '../components/outbound-link';
-import email from '../assets/mail.svg';
-import twitter from '../assets/twitter.svg';
-import github from '../assets/github.svg';
-import linkedin from '../assets/linkedin.svg';
 
 import styles from './index.module.scss';
 
 const IndexPage = () => (
   <Layout>
-    <SEO title="Home" />
     <div className={styles.container}>
       <div className={styles.socialRow}>
         <OutboundLink
           href="https://www.twitter.com/ianwremmel"
           title="Follow me on Twitter"
         >
-          <img alt="" src={twitter} />
+          <img alt="Twitter logo" src="/assets/twitter.svg" />
         </OutboundLink>
 
         <OutboundLink
           href="https://github.com/ianwremmel"
           title="My GitHub profile"
         >
-          <img alt="" src={github} />
+          <img alt="GitHub logo" src="/assets/github.svg" />
         </OutboundLink>
 
         <OutboundLink
           href="https://www.linkedin.com/pub/ian-remmel/3/a32/208"
           title="That thing recruiters use to spread spam"
         >
-          <img alt="" src={linkedin} />
+          <img alt="LinkedIn logo" src="/assets/linkedin.svg" />
         </OutboundLink>
 
         <a href="mailto:hello@ianwremmel.com" title="Send me an email">
-          <img alt="" src={email} />
+          <img alt="An envelope" src="/assets/mail.svg" />
         </a>
       </div>
 
