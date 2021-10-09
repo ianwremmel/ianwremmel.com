@@ -1,7 +1,6 @@
-import React from 'react';
+import Image from 'next/image';
 
-import Layout from '../components/layout';
-import SEO from '../components/seo';
+import {Layout} from '../components/layout';
 import {OutboundLink} from '../components/outbound-link';
 import email from '../assets/mail.svg';
 import twitter from '../assets/twitter.svg';
@@ -12,32 +11,31 @@ import styles from './index.module.scss';
 
 const IndexPage = () => (
   <Layout>
-    <SEO title="Home" />
     <div className={styles.container}>
       <div className={styles.socialRow}>
         <OutboundLink
           href="https://www.twitter.com/ianwremmel"
           title="Follow me on Twitter"
         >
-          <img alt="" src={twitter} />
+          <Image alt="Twitter logo" src={twitter} />
         </OutboundLink>
 
         <OutboundLink
           href="https://github.com/ianwremmel"
           title="My GitHub profile"
         >
-          <img alt="" src={github} />
+          <Image alt="GitHub logo" src={github} />
         </OutboundLink>
 
         <OutboundLink
           href="https://www.linkedin.com/pub/ian-remmel/3/a32/208"
           title="That thing recruiters use to spread spam"
         >
-          <img alt="" src={linkedin} />
+          <Image alt="LinkedIn logo" src={linkedin} />
         </OutboundLink>
 
         <a href="mailto:hello@ianwremmel.com" title="Send me an email">
-          <img alt="" src={email} />
+          <Image alt="An envelope" src={email} />
         </a>
       </div>
 

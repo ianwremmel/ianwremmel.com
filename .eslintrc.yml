@@ -6,16 +6,46 @@ extends:
   - 'plugin:@ianwremmel/ianwremmel/react'
   - 'plugin:jsx-a11y/recommended'
   - 'plugin:react/recommended'
+  - 'prettier'
+
+overrides:
+  # make sure eslint lints all files
+  - files:
+      - '**/*.js'
+      - '**/*.jsx'
+      - '**/*.ts'
+      - '**/*.tsx'
+
+  - extends:
+      - 'plugin:@ianwremmel/ianwremmel/typescript'
+    files:
+      - '**/*.ts'
+      - '**/*.tsx'
+    rules:
+      '@typescript-eslint/consistent-type-definitions':
+        - error
+        - interface
+      no-shadow: off
+      '@typescript-eslint/no-shadow': error
+      no-use-before-define: off
+      '@typescript-eslint/no-use-before-define':
+        - error
+        - classes: true
+          functions: false
+          variables: true
+
+  - files: ['!src/**/*']
+    parserOptions:
+      sourceType: script
+
 parserOptions:
   ecmaFeatures:
     jsx: true
-overrides:
-  - files: ['!src/**/*.js']
-    parserOptions:
-      sourceType: script
+
 plugins:
   - jsx-a11y
   - react
+
 rules:
   import/no-unassigned-import:
     - error
@@ -23,6 +53,8 @@ rules:
         - '**/*.css'
         - '**/*.scss'
   require-jsdoc: off
+  react/react-in-jsx-scope: off
+
 settings:
   react:
     version: 'detect'

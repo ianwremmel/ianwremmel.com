@@ -1,24 +1,24 @@
 version: 2
 updates:
-  - package-ecosystem: "github-actions"
+  - package-ecosystem: 'github-actions'
     commit-message:
-      prefix: "chore"
-      include: "scope"
-    directory: "/"
+      prefix: 'chore'
+      include: 'scope'
+    directory: '/'
     open-pull-requests-limit: 15
     schedule:
-      interval: "daily"
+      interval: 'daily'
 
-  - package-ecosystem: "npm"
+  - package-ecosystem: 'npm'
     commit-message:
-      prefix: "chore"
-      include: "scope"
-    directory: "/"
+      prefix: 'chore'
+      include: 'scope'
+    directory: '/'
     ignore:
-      - dependency-name: "@types/node"
+      - dependency-name: '@types/node'
         versions:
-        - "> 16"
+          - '> 14'
     open-pull-requests-limit: 15
     schedule:
-      interval: "daily"
-    versioning-strategy: "increase"
+      interval: 'daily'
+    versioning-strategy: 'increase'
