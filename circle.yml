@@ -15,7 +15,7 @@ version: 2
 jobs:
   lint:
     docker:
-      - image: node:8
+      - image: node:14
     steps:
       - checkout
       - restore_cache: *restore_cache
