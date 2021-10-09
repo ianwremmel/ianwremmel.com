@@ -1,69 +1,56 @@
 {
   "name": "ianwremmel.com",
   "description": "Personal website of Ian W. Remmel",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "author": "Ian Remmel <1182361+ianwremmel@users.noreply.github.com>",
-  "dependencies": {
-    "bootstrap": "^4.6.0",
-    "gatsby": "^2.32.13",
-    "gatsby-cli": "^3.8.0",
-    "gatsby-image": "^3.10.0",
-    "gatsby-plugin-catch-links": "^2.10.0",
-    "gatsby-plugin-google-analytics": "^2.11.0",
-    "gatsby-plugin-netlify": "^2.11.1",
-    "gatsby-plugin-postcss": "^2.3.13",
-    "gatsby-plugin-react-helmet": "^3.10.0",
-    "gatsby-plugin-sass": "^2.8.0",
-    "gatsby-plugin-sharp": "^2.6.43",
-    "gatsby-source-filesystem": "^2.11.1",
-    "gatsby-transformer-sharp": "^2.5.16",
-    "node-sass": "^4.14.1",
-    "postcss-import": "^12.0.1",
-    "postcss-preset-env": "^6.7.0",
-    "postcss-reporter": "^6.0.1",
-    "prop-types": "^15.7.2",
-    "react": "^16.14.0",
-    "react-dom": "^16.14.0",
-    "react-helmet": "^6.1.0"
-  },
+  "dependencies": {},
   "keywords": [],
   "license": "MIT",
   "main": "n/a",
   "scripts": {
-    "build": "gatsby build",
-    "eslint": "eslint --fix --ignore --ignore-path .gitignore",
-    "lint": "npm run --silent lint:js && npm run --silent lint:changelog",
+    "eslint": "eslint ${ESLINT_FORMAT_OPTIONS:-} --ignore-path .gitignore ",
+    "lint": "npm-run-all -c -p lint:*",
     "lint:changelog": "commitlint --from origin/master --to HEAD",
-    "lint:js": "npm run --silent eslint -- .",
-    "start": "gatsby develop",
-    "test": "npm run lint"
+    "lint:es": "npm run --silent eslint -- .",
+    "prepare": "husky install"
   },
   "devDependencies": {
-    "@commitlint/cli": "^9.1.2",
-    "@commitlint/config-conventional": "^8.3.4",
-    "@ianwremmel/eslint-plugin-ianwremmel": "^3.0.0",
-    "babel-eslint": "^10.1.0",
-    "eslint": "^5.16.0",
-    "eslint-config-prettier": "^4.3.0",
-    "eslint-plugin-comments": "^1.0.0",
-    "eslint-plugin-compat": "^2.7.0",
+    "@commitlint/cli": "^13.2.0",
+    "@commitlint/config-conventional": "^13.2.0",
+    "@ianwremmel/eslint-plugin-ianwremmel": "^4.4.0",
+    "@types/node": "^16.10.3",
+    "@typescript-eslint/eslint-plugin": "^4.33.0",
+    "@typescript-eslint/parser": "^4.33.0",
+    "eslint": "^7.32.0",
+    "eslint-plugin-babel": "^5.3.1",
+    "eslint-plugin-compat": "^3.13.0",
     "eslint-plugin-eslint-comments": "^3.2.0",
-    "eslint-plugin-import": "^2.23.4",
-    "eslint-plugin-markdown": "^1.0.2",
-    "eslint-plugin-mocha": "^5.3.0",
-    "eslint-plugin-prettier": "^3.4.0",
-    "husky": "^7.0.0",
-    "lint-staged": "^11.0.0",
-    "prettier": "^1.19.1"
+    "eslint-plugin-import": "^2.24.2",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-markdown": "^2.2.1",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.26.1",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "husky": "^7.0.2",
+    "lint-staged": "^11.2.1",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.4.1",
+    "typescript": "^4.4.3"
   },
   "private": true,
   "lint-staged": {
-    "*.js": "npm run eslint -- "
+    "*.js": "npm run eslint -- ",
+    "*.ts": "npm run eslint -- ",
+    "*.tsx": "npm run eslint -- "
   },
   "husky": {
     "hooks": {
       "commit-msg": "commitlint -e",
       "pre-commit": "lint-staged"
     }
+  },
+  "engines": {
+    "node": "16",
+    "npm": ">=7"
   }
 }

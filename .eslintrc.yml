@@ -3,9 +3,9 @@ env:
   node: true
 extends:
   - 'plugin:@ianwremmel/ianwremmel/modern'
+  - 'plugin:@ianwremmel/ianwremmel/react'
   - 'plugin:jsx-a11y/recommended'
   - 'plugin:react/recommended'
-  - 'prettier/react'
 parserOptions:
   ecmaFeatures:
     jsx: true
@@ -28,4 +28,4 @@ settings:
     version: 'detect'
   linkComonents:
     - name: 'Link'
-      linkAttribute: 'to'
+      linkAttribute: 'href'
