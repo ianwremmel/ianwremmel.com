@@ -34,7 +34,7 @@ overrides:
           functions: false
           variables: true
 
-  - files: ['!src/**/*']
+  - files: ['**/*.js']
     parserOptions:
       sourceType: script
 
