@@ -27,7 +27,7 @@
   },
   "devDependencies": {
     "@commitlint/cli": "^13.2.0",
-    "@commitlint/config-conventional": "^13.2.0",
+    "@commitlint/config-conventional": "^16.0.0",
     "@ianwremmel/eslint-plugin-ianwremmel": "^4.4.0",
     "@next/eslint-plugin-next": "^11.1.2",
     "@types/node": "^14",
