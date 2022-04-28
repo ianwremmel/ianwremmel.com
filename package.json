@@ -26,7 +26,7 @@
     "start": "next start"
   },
   "devDependencies": {
-    "@commitlint/cli": "^13.2.0",
+    "@commitlint/cli": "^16.2.4",
     "@commitlint/config-conventional": "^13.2.0",
     "@ianwremmel/eslint-plugin-ianwremmel": "^4.4.0",
     "@next/eslint-plugin-next": "^11.1.2",
