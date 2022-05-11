@@ -1,25 +1,26 @@
 {
   "compilerOptions": {
     "allowJs": true,
+    "baseUrl": ".",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": false,
     "isolatedModules": true,
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
+      "DOM",
+      "DOM.Iterable",
+      "ES2019"
     ],
     "module": "esnext",
     "moduleResolution": "node",
     "noEmit": true,
     "resolveJsonModule": true,
     "strict": true,
-    "target": "es5",
+    "target": "ES2019",
     "skipLibCheck": true,
   },
   "include": [
-    "next-env.d.ts",
+    "remix.env.d.ts",
     "**/*.ts",
     "**/*.tsx"
   ],
