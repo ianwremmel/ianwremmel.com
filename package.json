@@ -5,7 +5,6 @@
   "author": "Ian Remmel <1182361+ianwremmel@users.noreply.github.com>",
   "dependencies": {
     "bootstrap": "^5.1.3",
-    "next": "^11.1.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
@@ -13,8 +12,6 @@
   "license": "MIT",
   "main": "n/a",
   "scripts": {
-    "build": "next build && next export",
-    "dev": "next dev",
     "eslint": "eslint ${ESLINT_FORMAT_OPTIONS:-} --ignore-path .gitignore ",
     "lint": "npm-run-all -c -p lint:*",
     "lint:changelog": "commitlint --from origin/master --to HEAD",
@@ -22,14 +19,12 @@
     "lint:es": "npm run --silent eslint -- .",
     "prelint:types": "mkdirp reports/style",
     "lint:types": "bash -c \"tsc $TSC_OPTIONS\"",
-    "prepare": "husky install",
-    "start": "next start"
+    "prepare": "husky install"
   },
   "devDependencies": {
     "@commitlint/cli": "^16.2.4",
     "@commitlint/config-conventional": "^16.2.4",
     "@ianwremmel/eslint-plugin-ianwremmel": "^6.0.0",
-    "@next/eslint-plugin-next": "^11.1.2",
     "@types/node": "^14",
     "@types/react": "^17.0.27",
     "@types/react-dom": "^17.0.9",
@@ -50,7 +45,6 @@
     "mkdirp": "^1.0.4",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.6.2",
-    "sass": "^1.42.1",
     "typescript": "^4.6.4"
   },
   "private": true,
