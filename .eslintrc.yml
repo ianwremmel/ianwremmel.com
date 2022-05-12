@@ -5,8 +5,9 @@ extends:
   - 'plugin:@ianwremmel/ianwremmel/modern'
   - 'plugin:@ianwremmel/ianwremmel/react'
   - 'plugin:jsx-a11y/recommended'
+  - '@remix-run/eslint-config'
+  - '@remix-run/eslint-config/node'
   - 'plugin:react/recommended'
-  - 'plugin:@next/next/recommended'
   - 'prettier'
 
 overrides:
@@ -38,6 +39,10 @@ overrides:
   - files: ['**/*.js']
     parserOptions:
       sourceType: script
+
+  - files: ['server.js']
+    parserOptions:
+      sourceType: module
 
 parserOptions:
   ecmaFeatures:
