@@ -7,3 +7,9 @@ node_modules
 /public/build
 /.netlify
 .env
+
+# These two css files are built from styles, so we don't want to commit them.
+# For now, we'll assume any other css files are one-offs and should be
+# committed.
+/app/root.css
+/app/root.css.map

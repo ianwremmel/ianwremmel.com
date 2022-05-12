@@ -13,4 +13,35 @@ $font-family-base: $font-family-sans-serif;
 $headings-font-weight: bold;
 $headings-line-height: 1.2;
 
-@import '~bootstrap/scss/bootstrap.scss';
+@import 'node_modules/bootstrap/scss/bootstrap.scss';
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  padding: 5vw;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.social-row {
+  display: flex;
+  justify-content: flex-end;
+
+  >* {
+    padding: 0 1vw;
+  }
+
+  img {
+    height: 2.5vw;
+    width: 2.5vw;
+  }
+}
+
+.heading-row h1 {
+  font-size: calc(1rem + 5vw);
+}
+
+.body-row {
+  font-size: calc(0.5rem + 2.5vw);
+}

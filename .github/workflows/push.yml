@@ -29,6 +29,8 @@ jobs:
           cache: 'npm'
       - run: npm i -g npm@8
       - run: npm ci
+      # Need to build root.css so that it's visible to eslint
+      - run: npm run build:css
       - run: npm run lint
         env:
           ESLINT_FORMAT_OPTIONS:

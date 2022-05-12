@@ -6,11 +6,7 @@
     "forceConsistentCasingInFileNames": false,
     "isolatedModules": true,
     "jsx": "react-jsx",
-    "lib": [
-      "DOM",
-      "DOM.Iterable",
-      "ES2019"
-    ],
+    "lib": ["DOM", "DOM.Iterable", "ES2019"],
     "module": "esnext",
     "moduleResolution": "node",
     "noEmit": true,
@@ -18,13 +14,10 @@
     "strict": true,
     "target": "ES2019",
     "skipLibCheck": true,
+    "paths": {
+      "~/*": ["./app/*"]
+    }
   },
-  "include": [
-    "remix.env.d.ts",
-    "**/*.ts",
-    "**/*.tsx"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["remix.env.d.ts", "**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"]
 }
