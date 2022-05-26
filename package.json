@@ -34,7 +34,7 @@
     "@commitlint/cli": "^16.2.4",
     "@commitlint/config-conventional": "^16.2.4",
     "@ianwremmel/eslint-plugin-ianwremmel": "^6.0.0",
-    "@remix-run/dev": "^1.4.3",
+    "@remix-run/dev": "^1.5.1",
     "@remix-run/eslint-config": "^1.4.3",
     "@types/node": "^14",
     "@types/react": "^17.0.24",
