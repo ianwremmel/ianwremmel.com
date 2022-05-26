@@ -46,7 +46,7 @@ TMP                         := .tmp
 SENTINEL_DIR                := $(TMP)/sentinel
 
 REMIX_OUTPUT                := .netlify/functions-internal/server.js $(shell find public/build -type f)
-REMIX_INPUT                 := $(filter-out $(REMIX_OUTPUT), $(shell find app -type f) $(shell find public -type f)) remix.config.js server.js tsconfig.json package.json package-lock.json
+REMIX_INPUT                 := app/root.css $(filter-out $(REMIX_OUTPUT), $(shell find app -type f) $(shell find public -type f)) remix.config.js server.js tsconfig.json package.json package-lock.json
 
 SASS                        := $(shell find app/styles -name '*.scss')
 
