@@ -1,34 +1,37 @@
-import {OutboundLink} from '../components/atoms/outbound-link';
+import {SocialLink} from '../components/molecules/social-link';
 
 export default function Index() {
   return (
     <>
       <div className="container">
         <div className="social-row">
-          <OutboundLink
+          <SocialLink
+            alt="Twitter logo"
             href="https://www.twitter.com/ianwremmel"
+            src="/assets/twitter.svg"
             title="Follow me on Twitter"
-          >
-            <img alt="Twitter logo" src="/assets/twitter.svg" />
-          </OutboundLink>
+          />
 
-          <OutboundLink
+          <SocialLink
+            alt="GitHub logo"
             href="https://github.com/ianwremmel"
+            src="/assets/github.svg"
             title="My GitHub profile"
-          >
-            <img alt="GitHub logo" src="/assets/github.svg" />
-          </OutboundLink>
+          />
 
-          <OutboundLink
+          <SocialLink
+            alt="LinkedIn logo"
             href="https://www.linkedin.com/pub/ian-remmel/3/a32/208"
+            src="/assets/linkedin.svg"
             title="That thing recruiters use to spread spam"
-          >
-            <img alt="LinkedIn logo" src="/assets/linkedin.svg" />
-          </OutboundLink>
+          />
 
-          <a href="mailto:hello@ianwremmel.com" title="Send me an email">
-            <img alt="An envelope" src="/assets/mail.svg" />
-          </a>
+          <SocialLink
+            alt="An envelope"
+            href="mailto:hello@ianwremmel.com"
+            src="/assets/mail.svg"
+            title="Send me an email"
+          />
         </div>
 
         <div className="heading-row">
