@@ -8,7 +8,7 @@ export default function Index() {
         <SocialLinks />
 
         <div className="heading-row">
-          <h1>Hi! I&apos;m Ian Remmel.</h1>
+          <h1>Hi! I'm Ian Remmel.</h1>
         </div>
 
         <div className="body-row">
@@ -21,8 +21,8 @@ export default function Index() {
             >
               what I do at work
             </OutboundLink>
-            , or I was excited about something I&apos;m doing with one of my
-            side projects (probably{' '}
+            , or I was excited about something I'm doing with one of my side
+            projects (probably{' '}
             <OutboundLink
               href="https://www.check-run-reporter.com/?utm_source=https%3A%2F%2Fwww.ianwremmel.com&utm_medium=website&utm_campaign=none"
               title="Check Run Reporter helps you fix your CI failures faster by reducing the need to dig through poorly formatted logs."
