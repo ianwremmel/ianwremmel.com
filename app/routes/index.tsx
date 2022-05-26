@@ -1,4 +1,4 @@
-import {OutboundLink} from 'app/components/outbound-link';
+import {OutboundLink} from '../components/atoms/outbound-link';
 
 export default function Index() {
   return (
