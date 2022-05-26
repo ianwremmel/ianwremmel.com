@@ -14,9 +14,7 @@
     "strict": true,
     "target": "ES2019",
     "skipLibCheck": true,
-    "paths": {
-      "~/*": ["./app/*"]
-    }
+    "paths": {}
   },
   "include": ["remix.env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]

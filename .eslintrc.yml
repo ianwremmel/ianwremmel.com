@@ -60,6 +60,9 @@ rules:
         - '**/*.scss'
   require-jsdoc: off
   react/react-in-jsx-scope: off
+  # This rule seems like a remnant of a bad time in the frontend world. It's mostly just annoying without providing any
+  # technical benefit and only minimal opportunity to prevent mistakes.
+  react/no-unescaped-entities: off
 
 settings:
   react:
@@ -67,3 +70,4 @@ settings:
   linkComonents:
     - name: 'Link'
       linkAttribute: 'href'
+
