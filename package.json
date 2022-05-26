@@ -16,9 +16,7 @@
   "keywords": [],
   "license": "MIT",
   "scripts": {
-    "build": "npm-run-all --continue-on-error build:*",
-    "build:css": "sass --load-path . ./app/styles/index.scss ./app/root.css",
-    "build:remix": "remix build",
+    "build": "make all",
     "dev": "npm-run-all --continue-on-error --parallel dev:*",
     "dev:css": "sass --watch --load-path . ./app/styles/index.scss ./app/root.css",
     "dev:remix": "cross-env NODE_ENV=development netlify dev",
