@@ -26,8 +26,8 @@ jobs:
           fetch-depth: 0
       - uses: actions/setup-node@v3
         with:
-          node-version: '14'
           cache: 'npm'
+          node-version-file: '.nvmrc'
       - run: npm i -g npm@8
       - run: npm ci
       # Need to build root.css so that it's visible to eslint
