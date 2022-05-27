@@ -22,7 +22,7 @@
     "dev:remix": "cross-env NODE_ENV=development netlify dev",
     "eslint": "eslint ${ESLINT_FORMAT_OPTIONS:-} --ignore-path .gitignore ",
     "lint": "npm-run-all --continue-on-error --parallel lint:*",
-    "lint:changelog": "commitlint --from origin/master --to HEAD",
+    "lint:changelog": "commitlint --from origin/main --to HEAD",
     "prelint:es": "mkdirp reports/style",
     "lint:es": "npm run --silent eslint -- .",
     "prelint:types": "mkdirp reports/style",
