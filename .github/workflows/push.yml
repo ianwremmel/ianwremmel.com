@@ -33,6 +33,11 @@ jobs:
       - run: make chromatic
         env:
           CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+      - run: npx test-storybook
+        env:
+          # I'd love to get this constant part of this at runtime, but there
+          # doesn't seem to be any way to do so.
+          TARGET_URL: 'https://${{ github.ref_name }}--62911a8fe23893003a9b5d0a.chromatic.com'
 
   lint:
     runs-on: ubuntu-latest

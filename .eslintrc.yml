@@ -63,6 +63,7 @@ rules:
     - allow:
         - '**/*.css'
         - '**/*.scss'
+  no-restricted-syntax: off
   require-jsdoc: off
   react/react-in-jsx-scope: off
   # This rule seems like a remnant of a bad time in the frontend world. It's mostly just annoying without providing any
