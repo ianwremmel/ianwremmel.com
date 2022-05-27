@@ -31,7 +31,7 @@
     "start": "cross-env NODE_ENV=production netlify dev",
     "prestorybook": "make app/root.css",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "make storybook-static"
   },
   "devDependencies": {
     "@babel/core": "^7.18.2",
@@ -57,6 +57,7 @@
     "@typescript-eslint/eslint-plugin": "^5.26.0",
     "@typescript-eslint/parser": "^5.26.0",
     "babel-loader": "^8.2.5",
+    "chromatic": "^6.5.4",
     "css-loader": "^6.7.1",
     "eslint": "^8.16.0",
     "eslint-plugin-babel": "^5.3.1",

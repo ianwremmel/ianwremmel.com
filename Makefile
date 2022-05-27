@@ -40,11 +40,17 @@ MAKEFLAGS += --no-builtin-rules
 NPX := npx --no-install
 
 TMP                         := .tmp
+SENTINEL_DIR				:= $(TMP)/sentinel
 
 REMIX_OUTPUT                := .netlify/functions-internal/server.js $(shell find public/build -type f)
 REMIX_INPUT                 := app/root.css $(filter-out $(REMIX_OUTPUT), $(shell find app -type f) $(shell find public -type f)) remix.config.js server.js tsconfig.json package.json package-lock.json
 
 SASS                        := $(shell find app/styles -name '*.scss')
+SASS_OUTPUT                 := app/root.css app/root.css.map
+
+STORYBOOK_STATIC_DIR        := storybook-static
+STORYBOOK_STATIC_INPUT      := app/root.css $(shell find app -name '*.tsx')
+STORYBOOK_STATIC_OUTPUT     := $(STORYBOOK_STATIC_DIR)/project.json build-storybook.log
 
 ALL                         := $(REMIX_OUTPUT) app/root.css README.md
 
@@ -55,9 +61,33 @@ ALL                         := $(REMIX_OUTPUT) app/root.css README.md
 all: $(ALL)
 .PHONY: all
 
+chromatic: $(SENTINEL_DIR)/chromatic | $(SENTINEL_DIR)
+.PHONY: chromatic
+
 clean:
-	rm -rf $(REMIX_OUTPUT) app/root.css  $(TMP)
+	rm -rf $(REMIX_OUTPUT) $(SASS_OUTPUT)  $(TMP) $(STORYBOOK_STATIC_DIR) .netlify
 .PHONY: clean
+
+storybook-static: $(SENTINEL_DIR)/storybook-static
+.PHONY: .storybook-static
+
+###############################################################################
+## Utility Targets
+###############################################################################
+
+$(SENTINEL_DIR):
+	@mkdir -p $@
+
+###############################################################################
+## Deploy Targets
+###############################################################################
+
+$(SENTINEL_DIR)/chromatic: $(STORYBOOK_STATIC_OUTPUT) $(SASS_OUTPUT) | $(SENTINEL_DIR)
+ifdef CI
+	$(NPX) chromatic --exit-zero-on-changes --storybook-build-dir "$(STORYBOOK_STATIC_DIR)"
+else
+	$(NPX) chromatic --storybook-build-dir "$(STORYBOOK_STATIC_DIR)"
+endif
 
 ###############################################################################
 ## Helpers
@@ -80,7 +110,7 @@ $(REMIX_OUTPUT) &: $(REMIX_INPUT)
 ## Targets
 ###############################################################################
 
-app/root.css: app/styles/index.scss $(SASS)
+$(SASS_OUTPUT) &: app/styles/index.scss $(SASS)
 	$(NPX) sass --load-path . $< $@
 
 README.md:
@@ -88,3 +118,5 @@ README.md:
 	$(NPX) prettier --write README.md
 .PHONY: README.md
 
+$(STORYBOOK_STATIC_OUTPUT) &: $(STORYBOOK_STATIC_INPUT) | $(SENTINEL_DIR)
+	$(NPX) build-storybook --output-dir "$(STORYBOOK_STATIC_DIR)"
