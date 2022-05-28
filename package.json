@@ -34,6 +34,10 @@
     "build-storybook": "make storybook-static"
   },
   "devDependencies": {
+    "@actions/core": "^1.8.2",
+    "@actions/exec": "^1.1.1",
+    "@actions/io": "^1.1.2",
+    "@actions/tool-cache": "^2.0.1",
     "@babel/core": "^7.18.2",
     "@commitlint/cli": "^17.0.1",
     "@commitlint/config-conventional": "^17.0.0",

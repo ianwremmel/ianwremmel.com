@@ -30,6 +30,7 @@ jobs:
           node-version-file: '.nvmrc'
       - run: npm i -g npm@8
       - run: npm ci
+      - uses: ./.github/setup-make
       - run: make chromatic
         env:
           CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
