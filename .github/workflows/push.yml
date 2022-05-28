@@ -1,35 +1,57 @@
 on: push
 name: Validate
 jobs:
-  fixup:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2.3.4
-        with:
-          fetch-depth: 0
-      - uses: ianwremmel/prevent-fixup-commits@v1.0.2
+#  These actions are currently broken
+#  fixup:
+#    runs-on: ubuntu-latest
+#    steps:
+#      - uses: actions/checkout@v3.0.2
+#        with:
+#          fetch-depth: 0
+#      - uses: ianwremmel/prevent-fixup-commits@v1.0.2
+#
+#  nopush:
+#    runs-on: ubuntu-latest
+#    steps:
+#      - uses: actions/checkout@v3.0.2
+#        with:
+#          fetch-depth: 0
+#      - uses: ianwremmel/prevent-nopush-commits@v1.0.3
 
-  nopush:
+  chromatic:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2.3.4
+      - uses: actions/checkout@v3.0.2
         with:
           fetch-depth: 0
-      - uses: ianwremmel/prevent-nopush-commits@v1.0.3
+      - uses: actions/setup-node@v3
+        with:
+          cache: 'npm'
+          node-version-file: '.nvmrc'
+      - run: npm i -g npm@8
+      - run: npm ci
+      - uses: ./.github/setup-make
+      - run: make chromatic
+        env:
+          CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+      - run: npx test-storybook
+        env:
+          # I'd love to get this constant part of this at runtime, but there
+          # doesn't seem to be any way to do so.
+          TARGET_URL: 'https://${{ github.ref_name }}--62911a8fe23893003a9b5d0a.chromatic.com'
 
   lint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2.3.4
+      - uses: actions/checkout@v3.0.2
         with:
           fetch-depth: 0
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v3
         with:
-          node-version: '14'
           cache: 'npm'
+          node-version-file: '.nvmrc'
       - run: npm i -g npm@8
       - run: npm ci
-      # Need to build root.css so that it's visible to eslint
       - run: make app/root.css
       - run: npm run lint
         env:

@@ -1,14 +1,19 @@
 env:
   es6: true
   node: true
+
 extends:
   - 'plugin:@ianwremmel/ianwremmel/modern'
   - 'plugin:@ianwremmel/ianwremmel/react'
   - 'plugin:jsx-a11y/recommended'
+  - 'plugin:storybook/recommended'
   - '@remix-run/eslint-config'
   - '@remix-run/eslint-config/node'
   - 'plugin:react/recommended'
   - 'prettier'
+
+ignorePatterns:
+  - '!.storybook'
 
 overrides:
   # make sure eslint lints all files
@@ -58,6 +63,7 @@ rules:
     - allow:
         - '**/*.css'
         - '**/*.scss'
+  no-restricted-syntax: off
   require-jsdoc: off
   react/react-in-jsx-scope: off
   # This rule seems like a remnant of a bad time in the frontend world. It's mostly just annoying without providing any
