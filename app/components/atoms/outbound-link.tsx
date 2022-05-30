@@ -1,6 +1,9 @@
 import type {PropsWithChildren} from 'react';
 
-export interface OutboundLinkProps {
+import type {LinkProps} from './hyperlink';
+import {Hyperlink} from './hyperlink';
+
+export interface OutboundLinkProps extends LinkProps {
   href: string;
   title: string;
 }
@@ -10,7 +13,7 @@ export const OutboundLink = ({
   href,
   ...rest
 }: PropsWithChildren<OutboundLinkProps>) => (
-  <a href={href} rel="noopener noreferrer" target="_blank" {...rest}>
+  <Hyperlink {...rest} href={href} rel="noopener noreferrer" target="_blank">
     {children}
-  </a>
+  </Hyperlink>
 );

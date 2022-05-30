@@ -1,8 +1,11 @@
+import {decorateWithRouter} from '../../storybook/router-decorator';
+
 import {OutboundLink} from './outbound-link';
 
 export default {
   component: OutboundLink,
-  title: OutboundLink.name
+  decorators: [decorateWithRouter()],
+  title: 'Outbound Link'
 };
 
 export const outboundLink = () => (
