@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+set -x
+
+trap stop_server EXIT
+
+SERVER_PID=
+start_server () {
+  make storybook-static
+  npx --no-install http-server storybook-static --port 6006 &
+  SERVER_PID=$!
+}
+
+run_tests () {
+  npx --no-install wait-on tcp:6006
+  npm test -- --selectProjects 'Storybook Test Runner'
+}
+
+stop_server () {
+  kill $SERVER_PID
+}
+
+start_server
+run_tests

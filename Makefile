@@ -68,7 +68,7 @@ clean:
 	rm -rf $(REMIX_OUTPUT) $(SASS_OUTPUT)  $(TMP) $(STORYBOOK_STATIC_DIR) .netlify
 .PHONY: clean
 
-storybook-static: $(SENTINEL_DIR)/storybook-static
+storybook-static: $(STORYBOOK_STATIC_OUTPUT)
 .PHONY: .storybook-static
 
 ###############################################################################
