@@ -7,14 +7,19 @@
   flex-direction: column;
 }
 
-.social-row {
+.social-links {
   display: flex;
   justify-content: flex-end;
 
-  >* {
+  // Only apply this style if we're not in a list-nav; list-navs insert a
+  // li.nav-item which has its own padding. This is probably the wrong way to do
+  // this, but I need other code to exist before I do it correctly.
+  > a {
     padding: 0 1vw;
   }
+}
 
+.social-link {
   img {
     height: 2.5vw;
     width: 2.5vw;
