@@ -46,7 +46,7 @@
     "@ianwremmel/eslint-plugin-ianwremmel": "^6.0.0",
     "@remix-run/dev": "^1.5.1",
     "@remix-run/eslint-config": "^1.5.1",
-    "@storybook/addon-a11y": "^6.5.5",
+    "@storybook/addon-a11y": "^6.5.7",
     "@storybook/addon-actions": "^6.5.5",
     "@storybook/addon-essentials": "^6.5.5",
     "@storybook/addon-interactions": "^6.5.5",
