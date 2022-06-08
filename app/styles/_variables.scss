@@ -1,4 +1,7 @@
 $green: #2a5e61;
+$light-green: #b3d4ce;
+
+$dark: $green;
 
 $body-color: $green;
 
@@ -8,5 +11,13 @@ $font-family-sans-serif: proxima-nova, -apple-system, BlinkMacSystemFont,
 $font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas,
 'Liberation Mono', 'Courier New', monospace;
 $font-family-base: $font-family-sans-serif;
+
 $headings-font-weight: bold;
 $headings-line-height: 1.2;
+
+$navbar-dark-color: $light-green;
+$navbar-dark-hover-color: $light-green;
+$navbar-dark-active-color: $light-green;
+$navbar-dark-disabled-color: rgba($light-green, .25);
+
+$navbar-padding-y: 0

@@ -6,6 +6,13 @@
 
 // 3. Include remainder of required Bootstrap stylesheets
 @import "node_modules/bootstrap/scss/variables";
+
+// variables that override defaults using other variables need to come after the
+// bootstrap variables import
+$navbar-brand-font-size: $font-size-base;
+$navbar-brand-height: $navbar-brand-font-size * $line-height-base;
+
+
 @import "node_modules/bootstrap/scss/mixins";
 @import "node_modules/bootstrap/scss/root";
 
@@ -33,7 +40,7 @@
 //@import "node_modules/bootstrap/scss/list-group";
 //@import "node_modules/bootstrap/scss/modal";
 @import "node_modules/bootstrap/scss/nav";
-//@import "node_modules/bootstrap/scss/navbar";
+@import "node_modules/bootstrap/scss/navbar";
 //@import "node_modules/bootstrap/scss/offcanvas";
 //@import "node_modules/bootstrap/scss/pagination";
 //@import "node_modules/bootstrap/scss/placeholders";
