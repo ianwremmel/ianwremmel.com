@@ -4,14 +4,12 @@ import {SocialLinks} from '../components/organisms/social-links';
 export default function Index() {
   return (
     <>
-      <div className="container">
+      <div className="wrapper">
         <SocialLinks />
 
-        <div className="heading-row">
+        <main>
           <h1>Hi! I'm Ian Remmel.</h1>
-        </div>
 
-        <div className="body-row">
           <p>
             If you landed here, you probably met me at a conference or a meetup.
             Maybe I was talking about{' '}
@@ -31,7 +29,7 @@ export default function Index() {
             </OutboundLink>
             ).
           </p>
-        </div>
+        </main>
       </div>
     </>
   );

@@ -1,7 +1,6 @@
-.container {
+.wrapper {
   width: 100vw;
-  height: 100vh;
-  padding: 5vw;
+  padding: 5vw 10vw;
 
   display: flex;
   flex-direction: column;
@@ -31,12 +30,4 @@
     height: 1.5vw;
     width: 1.5vw;
   }
-}
-
-.heading-row h1 {
-  font-size: calc(1rem + 5vw);
-}
-
-.body-row {
-  font-size: calc(0.5rem + 2.5vw);
 }
