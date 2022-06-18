@@ -31,3 +31,31 @@
     width: 1.5vw;
   }
 }
+
+.publication-date {
+  display: inline-block;
+  font-weight: bold;
+  text-align: center;
+  padding: 0.5em;
+
+  border: 0.3em solid $green;
+  border-radius: 50%;
+  aspect-ratio: 1;
+}
+
+.publication-date__wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  height:100%;
+}
+
+.publication-date__date_and_month {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.publication-date__year {
+  display: inline-block;
+}
