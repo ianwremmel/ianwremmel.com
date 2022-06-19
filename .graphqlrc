@@ -1,0 +1,6 @@
+# Keep this file in sync with .graphqlconfig as possible. .graphqlconfig uses
+# the v2 graphql-config format, while .graphqlrc (and most graphql-tools) rely
+# on the v3 format. The Intellij plugins seems to be stuck with the V2 format.
+projects:
+  main:
+    schema: './__generated__/schema.graphql'
