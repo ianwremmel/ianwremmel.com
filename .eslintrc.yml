@@ -41,6 +41,11 @@ overrides:
           functions: false
           variables: true
 
+  - files:
+      - '*.graphql'
+      - '*.graphqls'
+    extends: "plugin:@graphql-eslint/schema-recommended"
+
   - files: ['**/*.js']
     parserOptions:
       sourceType: script
@@ -48,6 +53,12 @@ overrides:
   - files: ['server.js']
     parserOptions:
       sourceType: module
+
+  - files: ['./__generated__/**']
+    rules:
+      '@graphql-eslint/naming-convention': off
+      '@graphql-eslint/require-description': off
+      '@graphql-eslint/strict-id-in-types': off
 
 parserOptions:
   ecmaFeatures:

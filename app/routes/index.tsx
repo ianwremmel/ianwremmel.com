@@ -1,17 +1,16 @@
+import {Hyperlink} from '../components/atoms/hyperlink';
 import {OutboundLink} from '../components/atoms/outbound-link';
 import {SocialLinks} from '../components/organisms/social-links';
 
 export default function Index() {
   return (
     <>
-      <div className="container">
+      <div className="wrapper landing-page">
         <SocialLinks />
 
-        <div className="heading-row">
+        <main>
           <h1>Hi! I'm Ian Remmel.</h1>
-        </div>
 
-        <div className="body-row">
           <p>
             If you landed here, you probably met me at a conference or a meetup.
             Maybe I was talking about{' '}
@@ -31,7 +30,22 @@ export default function Index() {
             </OutboundLink>
             ).
           </p>
-        </div>
+
+          <p>
+            Recently, I started a <Hyperlink href="/blog">blog</Hyperlink>. It's
+            still super early, but you can see what I've got in mind for it over
+            on{' '}
+            <OutboundLink
+              href={
+                'https://timeline.ianwremmel.com/ianwremmel/highlights/604baf8c-daee-4133-a10e-cef7e5a379ff'
+              }
+              title=""
+            >
+              Polywork
+            </OutboundLink>
+            .
+          </p>
+        </main>
       </div>
     </>
   );

@@ -39,20 +39,24 @@ MAKEFLAGS += --no-builtin-rules
 # Wrap npx so it only uses local dependencies
 NPX := npx --no-install
 
-TMP                         := .tmp
-SENTINEL_DIR				:= $(TMP)/sentinel
+TMP                               := .tmp
+SENTINEL_DIR                      := $(TMP)/sentinel
 
-REMIX_OUTPUT                := .netlify/functions-internal/server.js $(shell find public/build -type f)
-REMIX_INPUT                 := app/root.css $(filter-out $(REMIX_OUTPUT), $(shell find app -type f) $(shell find public -type f)) remix.config.js server.js tsconfig.json package.json package-lock.json
+GRAPHQL_CODEGEN_INPUT             := Makefile codegen.yml $(shell find app -type f -name '*.ts' -name '*.tsx' -name '*.graphql')
+GRAPHQL_CODEGEN_LINTABLE_OUTPUT := ./__generated__/graphql.ts ./__generated__/schema.graphql
+GRAPHQL_CODEGEN_OUTPUT            := $(GRAPHQL_CODEGEN_LINTABLE_OUTPUT) ./__generated__/schema.json
 
-SASS                        := $(shell find app/styles -name '*.scss')
-SASS_OUTPUT                 := app/root.css app/root.css.map
+REMIX_OUTPUT                      := .netlify/functions-internal/server.js $(shell find public/build -type f)
+REMIX_INPUT                       := app/root.css $(filter-out $(REMIX_OUTPUT), $(shell find app -type f) $(shell find public -type f)) remix.config.js server.js tsconfig.json package.json package-lock.json
 
-STORYBOOK_STATIC_DIR        := storybook-static
-STORYBOOK_STATIC_INPUT      := app/root.css $(shell find app -name '*.tsx')
-STORYBOOK_STATIC_OUTPUT     := $(STORYBOOK_STATIC_DIR)/project.json build-storybook.log
+SASS                              := $(shell find app/styles -name '*.scss')
+SASS_OUTPUT                       := app/root.css app/root.css.map
 
-ALL                         := $(REMIX_OUTPUT) app/root.css README.md
+STORYBOOK_STATIC_DIR              := storybook-static
+STORYBOOK_STATIC_INPUT            := app/root.css $(shell find app -name '*.tsx')
+STORYBOOK_STATIC_OUTPUT           := $(STORYBOOK_STATIC_DIR)/project.json build-storybook.log
+
+ALL                               := $(REMIX_OUTPUT) app/root.css README.md
 
 ###############################################################################
 ## Public Targets
@@ -109,6 +113,10 @@ $(REMIX_OUTPUT) &: $(REMIX_INPUT)
 ###############################################################################
 ## Targets
 ###############################################################################
+
+$(GRAPHQL_CODEGEN_OUTPUT) &: $(GRAPHQL_CODEGEN_INPUT)
+	$(NPX) graphql-codegen --config codegen.yml --require dotenv/config
+	npm run eslint -- --fix $(GRAPHQL_CODEGEN_LINTABLE_OUTPUT)
 
 $(SASS_OUTPUT) &: app/styles/index.scss $(SASS)
 	$(NPX) sass --load-path . $< $@

@@ -1,0 +1,36 @@
+config:
+  defaultScalarType: unknown
+  enumsAsTypes: true
+  scalars:
+    DateTime: string
+    Dimension: number
+    HexColor: string
+    JSON: unknown
+    Quality: number
+  skipTypename: true
+  strictScalars: true
+  useTypeImports: true
+documents:
+  - './app/**/*.ts'
+  - './app/**/*.tsx'
+  - './app/**/*.graphql'
+generates:
+  ./__generated__/schema.graphql:
+    plugins:
+      - schema-ast
+  ./__generated__/schema.json:
+    plugins:
+      - introspection
+  ./__generated__/graphql.ts:
+    config:
+      withHooks: false
+    plugins:
+      - typescript
+      - typescript-operations
+      - typescript-urql
+overwrite: true
+schema:
+  '${CONTENTFUL_GRAPHQL_ENDPOINT}':
+    headers:
+      Authorization: 'Bearer ${CONTENTFUL_TOKEN}'
+
