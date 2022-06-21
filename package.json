@@ -4,6 +4,8 @@
   "version": "2.0.0",
   "author": "Ian Remmel <1182361+ianwremmel@users.noreply.github.com>",
   "dependencies": {
+    "@contentful/rich-text-from-markdown": "^15.13.1",
+    "@contentful/rich-text-react-renderer": "^15.12.1",
     "@netlify/functions": "^1.0.0",
     "@remix-run/netlify": "^1.5.1",
     "@remix-run/node": "^1.5.1",

@@ -59,3 +59,11 @@
 .publication-date__year {
   display: inline-block;
 }
+
+.landing-page {
+  @include font-size(3rem);
+
+  h1 {
+    @include font-size(6rem);
+  }
+}

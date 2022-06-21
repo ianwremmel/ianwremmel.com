@@ -4,7 +4,7 @@ import {SocialLinks} from '../components/organisms/social-links';
 export default function Index() {
   return (
     <>
-      <div className="wrapper">
+      <div className="wrapper landing-page">
         <SocialLinks />
 
         <main>
