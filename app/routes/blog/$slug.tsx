@@ -1,9 +1,9 @@
 import assert from 'assert';
 
-import {richTextFromMarkdown} from '@contentful/rich-text-from-markdown';
-import {documentToReactComponents} from '@contentful/rich-text-react-renderer';
 import type {LoaderFunction} from '@remix-run/node';
 import {useLoaderData} from '@remix-run/react';
+
+import {render} from 'app/lib/markdown.server';
 
 import {PublicationDate} from '../../components/molecules/publication-date';
 import {getPost} from '../../lib/contentful.server';
@@ -22,7 +22,7 @@ export const loader: LoaderFunction = async ({params}) => {
   return {
     post: {
       ...post,
-      body: post.body && (await richTextFromMarkdown(post.body))
+      body: post.body && (await render(post.body))
     }
   };
 };
@@ -43,10 +43,10 @@ export default function BlogPage() {
 
             <div>
               <h1 className="p-name">{post.title}</h1>
-              <div className="e-content">
-                {documentToReactComponents(post.body)}
-              </div>
-              <pre>{JSON.stringify(post.body.json, null, 2)}</pre>
+              <div
+                className="e-content"
+                dangerouslySetInnerHTML={{__html: post.body}}
+              ></div>
             </div>
           </div>
         </article>
