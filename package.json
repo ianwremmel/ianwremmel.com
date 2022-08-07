@@ -4,8 +4,7 @@
   "version": "2.0.0",
   "author": "Ian Remmel <1182361+ianwremmel@users.noreply.github.com>",
   "dependencies": {
-    "@contentful/rich-text-from-markdown": "^15.13.1",
-    "@contentful/rich-text-react-renderer": "^15.12.1",
+    "@markdoc/markdoc": "^0.1.4",
     "@netlify/functions": "^1.0.0",
     "@remix-run/netlify": "^1.6.7",
     "@remix-run/node": "^1.6.7",
@@ -16,7 +15,12 @@
     "cross-env": "^7.0.3",
     "graphql": "^16.5.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "rehype-stringify": "^9.0.3",
+    "remark-gfm": "^3.0.1",
+    "remark-parse": "^10.0.1",
+    "remark-rehype": "^10.1.0",
+    "unified": "^10.1.2"
   },
   "keywords": [],
   "license": "MIT",
