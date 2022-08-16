@@ -44,7 +44,7 @@ overrides:
   - files:
       - '*.graphql'
       - '*.graphqls'
-    extends: "plugin:@graphql-eslint/schema-recommended"
+    extends: 'plugin:@graphql-eslint/schema-recommended'
 
   - files: ['**/*.js']
     parserOptions:
@@ -69,6 +69,7 @@ plugins:
   - react
 
 rules:
+  compat/compat: off
   import/no-unassigned-import:
     - error
     - allow:
@@ -87,4 +88,3 @@ settings:
   linkComonents:
     - name: 'Link'
       linkAttribute: 'href'
-
