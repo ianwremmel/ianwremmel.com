@@ -71,3 +71,21 @@
 pre code {
   white-space: pre-wrap;
 }
+
+.blog-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.blog-list__item + .blog-list__item {
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
+.blog-list__publication-date {
+  margin-right: 1em;
+}
+
+.blog-list__excerpt {
+  margin-left: 1em;
+}
