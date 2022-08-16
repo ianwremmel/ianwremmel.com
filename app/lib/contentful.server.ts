@@ -26,7 +26,7 @@ const IndexPagePost = gql`
 
 const ListPostsQuery = gql`
   query ListPostsQuery {
-    postCollection(limit: 10, order: sys_firstPublishedAt_ASC) {
+    postCollection(limit: 10, order: sys_firstPublishedAt_DESC) {
       items {
         ...IndexPagePost
       }
