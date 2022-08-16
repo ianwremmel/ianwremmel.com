@@ -335,10 +335,16 @@ export type AuthorOrder =
 /** [See type definition](https://app.contentful.com/spaces/xlgl5pdkgxf5/content_types/category) */
 export type Category = Entry & {
   contentfulMetadata: ContentfulMetadata;
+  description?: Maybe<Scalars['String']>;
   linkedFrom?: Maybe<CategoryLinkingCollections>;
   name?: Maybe<Scalars['String']>;
   sys: Sys;
 };
+
+/** [See type definition](https://app.contentful.com/spaces/xlgl5pdkgxf5/content_types/category) */
+export interface CategoryDescriptionArgs {
+  locale?: InputMaybe<Scalars['String']>;
+}
 
 /** [See type definition](https://app.contentful.com/spaces/xlgl5pdkgxf5/content_types/category) */
 export interface CategoryLinkedFromArgs {
@@ -361,6 +367,13 @@ export interface CategoryFilter {
   AND?: InputMaybe<InputMaybe<CategoryFilter>[]>;
   OR?: InputMaybe<InputMaybe<CategoryFilter>[]>;
   contentfulMetadata?: InputMaybe<ContentfulMetadataFilter>;
+  description?: InputMaybe<Scalars['String']>;
+  description_contains?: InputMaybe<Scalars['String']>;
+  description_exists?: InputMaybe<Scalars['Boolean']>;
+  description_in?: InputMaybe<InputMaybe<Scalars['String']>[]>;
+  description_not?: InputMaybe<Scalars['String']>;
+  description_not_contains?: InputMaybe<Scalars['String']>;
+  description_not_in?: InputMaybe<InputMaybe<Scalars['String']>[]>;
   name?: InputMaybe<Scalars['String']>;
   name_contains?: InputMaybe<Scalars['String']>;
   name_exists?: InputMaybe<Scalars['Boolean']>;
@@ -860,7 +873,7 @@ export interface SysFilter {
 
 export interface IndexPagePostFragment {
   createdAt?: string | null;
-  excerpt?: string | null;
+  description?: string | null;
   slug?: string | null;
   title?: string | null;
   sys: {id: string};
@@ -872,7 +885,7 @@ export interface ListPostsQueryQuery {
   postCollection?: {
     items: ({
       createdAt?: string | null;
-      excerpt?: string | null;
+      description?: string | null;
       slug?: string | null;
       title?: string | null;
       sys: {id: string};
@@ -927,7 +940,7 @@ export interface GetPostQueryQuery {
 export const IndexPagePostFragmentDoc = gql`
   fragment IndexPagePost on Post {
     createdAt
-    excerpt
+    description
     slug
     sys {
       id
@@ -958,7 +971,7 @@ export const PagePagePostFragmentDoc = gql`
 `;
 export const ListPostsQueryDocument = gql`
   query ListPostsQuery {
-    postCollection(limit: 10, order: sys_firstPublishedAt_ASC) {
+    postCollection(limit: 10, order: sys_firstPublishedAt_DESC) {
       items {
         ...IndexPagePost
       }

@@ -227,6 +227,7 @@ enum AuthorOrder {
 """
 type Category implements Entry {
   contentfulMetadata: ContentfulMetadata!
+  description(locale: String): String
   linkedFrom(allowedLocales: [String]): CategoryLinkingCollections
   name(locale: String): String
   sys: Sys!
@@ -243,6 +244,13 @@ input CategoryFilter {
   AND: [CategoryFilter]
   OR: [CategoryFilter]
   contentfulMetadata: ContentfulMetadataFilter
+  description: String
+  description_contains: String
+  description_exists: Boolean
+  description_in: [String]
+  description_not: String
+  description_not_contains: String
+  description_not_in: [String]
   name: String
   name_contains: String
   name_exists: Boolean

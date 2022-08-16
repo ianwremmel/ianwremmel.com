@@ -15,7 +15,7 @@ export const {CONTENTFUL_TOKEN} = process.env;
 const IndexPagePost = gql`
   fragment IndexPagePost on Post {
     createdAt
-    excerpt
+    description
     slug
     sys {
       id
