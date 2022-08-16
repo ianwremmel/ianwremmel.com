@@ -42,7 +42,10 @@ NPX := npx --no-install
 TMP                               := .tmp
 SENTINEL_DIR                      := $(TMP)/sentinel
 
-GRAPHQL_CODEGEN_INPUT             := Makefile codegen.yml $(shell find app -type f -name '*.ts' -name '*.tsx' -name '*.graphql')
+# Note: skipping tsx files because remix leads them to include dollar signs and
+# break scripting. In general, we really shouldn't include graphql in tsx files
+# anyway.
+GRAPHQL_CODEGEN_INPUT             := Makefile codegen.yml $(shell find app -type f \( -name '*.ts' -o -name '*.graphql' \))
 GRAPHQL_CODEGEN_LINTABLE_OUTPUT := ./__generated__/graphql.ts ./__generated__/schema.graphql
 GRAPHQL_CODEGEN_OUTPUT            := $(GRAPHQL_CODEGEN_LINTABLE_OUTPUT) ./__generated__/schema.json
 
