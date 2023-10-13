@@ -14,6 +14,7 @@ export const meta: MetaFunction = () => ({
   author: 'Ian W. Remmel',
   charset: 'utf-8',
   'og:title': 'Ian W. Remmel',
+  robots: 'noai, noimageai',
   title: 'Ian W. Remmel',
   'twitter:creator': 'Ian W. Remmel',
   'twitter:title': 'Ian W. Remmel',
