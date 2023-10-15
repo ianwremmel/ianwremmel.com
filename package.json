@@ -73,7 +73,7 @@
     "@storybook/react": "^6.5.10",
     "@storybook/test-runner": "^0.5.0",
     "@storybook/testing-library": "^0.0.13",
-    "@types/node": "^16",
+    "@types/node": "^18.18.5",
     "@types/react": "^18.0.15",
     "@types/react-dom": "^18.0.6",
     "@typescript-eslint/eslint-plugin": "^5.26.0",
@@ -123,8 +123,8 @@
     }
   },
   "engines": {
-    "node": "^16",
-    "npm": ">=8"
+    "node": "^18",
+    "npm": ">=9"
   },
   "sideEffects": false,
   "overrides": {
