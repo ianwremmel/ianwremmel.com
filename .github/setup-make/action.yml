@@ -7,5 +7,6 @@ inputs:
     default: '4.3'
     required: true
 runs:
-  using: 'node16'
+  # for some reason, node18 is not supported by Github Actions `using` statement
+  using: 'node20'
   main: 'action.js'
