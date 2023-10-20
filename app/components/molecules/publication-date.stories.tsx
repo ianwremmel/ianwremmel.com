@@ -1,5 +1,3 @@
-import {decorateWithRouter} from '../../storybook/router-decorator';
-
 import {PublicationDate} from './publication-date';
 
 export default {
