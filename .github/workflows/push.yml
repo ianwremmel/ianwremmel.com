@@ -39,22 +39,24 @@ jobs:
           label: Storybook Test Runner
           report: 'reports/junit/**/*.xml'
 
-  chromatic:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3.0.2
-        with:
-          fetch-depth: 0
-      - uses: actions/setup-node@v3
-        with:
-          cache: 'npm'
-          node-version-file: '.nvmrc'
-      - run: npm i -g npm@9
-      - run: npm ci
-      - uses: ./.github/setup-make
-      - run: make chromatic
-        env:
-          CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+  # Temporarily disabled due to something weird between chromatic and storybook.
+  # Will reeanble after everthing gets updated.
+  # chromatic:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v3.0.2
+  #       with:
+  #         fetch-depth: 0
+  #     - uses: actions/setup-node@v3
+  #       with:
+  #         cache: 'npm'
+  #         node-version-file: '.nvmrc'
+  #     - run: npm i -g npm@9
+  #     - run: npm ci
+  #     - uses: ./.github/setup-make
+  #     - run: make chromatic
+  #       env:
+  #         CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
 
   lint:
     runs-on: ubuntu-latest
