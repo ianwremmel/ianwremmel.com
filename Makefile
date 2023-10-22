@@ -130,4 +130,4 @@ README.md:
 .PHONY: README.md
 
 $(STORYBOOK_STATIC_OUTPUT) &: $(STORYBOOK_STATIC_INPUT) | $(SENTINEL_DIR)
-	$(NPX) build-storybook --output-dir "$(STORYBOOK_STATIC_DIR)"
+	npm run build-storybook -- --output-dir "$(STORYBOOK_STATIC_DIR)"

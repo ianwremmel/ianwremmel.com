@@ -12,13 +12,23 @@ module.exports = {
     },
     '@storybook/addon-interactions'
   ],
-  core: {
-    builder: 'webpack5'
+
+  docs: {
+    autodocs: true
   },
+
   features: {
-    interactionsDebugger: true
+    interactionsDebugger: true,
+    // The following config appears to be necessary for chromatic to work.
+    // https://github.com/chromaui/chromatic-cli/issues/703
+    storyStoreV7: false
   },
-  framework: '@storybook/react',
+
+  framework: {
+    name: '@storybook/react-webpack5',
+    options: {}
+  },
+
   stories: [
     {
       directory: '../app/components/atoms',
@@ -38,6 +48,7 @@ module.exports = {
     '../app/**/*.stories.mdx',
     '../app/**/*.stories.@(js|jsx|ts|tsx)'
   ],
+
   typescript: {
     // We check typescript elsewhere; this should speed up builds
     check: false
