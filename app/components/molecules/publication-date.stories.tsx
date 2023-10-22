@@ -1,5 +1,3 @@
-import {decorateWithRouter} from '../../storybook/router-decorator';
-
 import {PublicationDate} from './publication-date';
 
 export default {
@@ -7,19 +5,19 @@ export default {
   title: 'Publication Date'
 };
 
-export const fromISOString = () => (
+export const FromISOString = () => (
   <PublicationDate timestamp={new Date('2021-01-01').toISOString()} />
 );
 
-export const fromDateObject = () => (
+export const FromDateObject = () => (
   <PublicationDate timestamp={new Date('2021-01-01')} />
 );
 
-export const fromIncompleteString = () => (
+export const FromIncompleteString = () => (
   <PublicationDate timestamp={'2021-01-01'} />
 );
 
-export const variousMonths = () => (
+export const VariousMonths = () => (
   <>
     <PublicationDate timestamp={'2021-01-01'} />
     <PublicationDate timestamp={'2021-02-01'} />

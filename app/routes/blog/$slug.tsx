@@ -2,7 +2,6 @@ import assert from 'assert';
 
 import type {LoaderFunction} from '@remix-run/node';
 import {useLoaderData} from '@remix-run/react';
-
 import {render} from 'app/lib/markdown.server';
 
 import {PublicationDate} from '../../components/molecules/publication-date';

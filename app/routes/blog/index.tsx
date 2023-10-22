@@ -1,5 +1,4 @@
 import {useLoaderData} from '@remix-run/react';
-
 import type {IndexPagePostFragment} from '__generated__/graphql';
 import {PublicationDate} from 'app/components/molecules/publication-date';
 import {render} from 'app/lib/markdown.server';

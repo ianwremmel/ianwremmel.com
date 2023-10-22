@@ -14,7 +14,6 @@ export default function handleRequest(
 
   responseHeaders.set('Content-Type', 'text/html');
 
-  // eslint-disable-next-line compat/compat
   return new Response(`<!DOCTYPE html>${markup}`, {
     headers: responseHeaders,
     status: responseStatusCode

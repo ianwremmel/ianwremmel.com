@@ -1,16 +1,16 @@
 import {decorateWithRouter} from '../../storybook/router-decorator';
 import githubIcon from '../organisms/social-links/github.svg';
 
-import {ImageLink} from './image-link';
+import {ImageLink as Component} from './image-link';
 
 export default {
-  component: ImageLink,
+  component: Component,
   decorators: [decorateWithRouter()],
   title: 'Image Link'
 };
 
-export const imageLink = () => (
-  <ImageLink
+export const ImageLink = () => (
+  <Component
     alt="GitHub logo"
     href="https://github.com/ianwremmel"
     src={githubIcon}

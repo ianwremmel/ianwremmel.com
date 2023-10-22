@@ -3,17 +3,17 @@ import type {ComponentType} from 'react';
 import {decorateWithRouter} from '../../../storybook/router-decorator';
 import {Nav} from '../../atoms/nav';
 
-import {SocialLinks} from './social-links';
+import {SocialLinks as Component} from './social-links';
 
 export default {
-  component: SocialLinks,
+  component: Component,
   decorators: [decorateWithRouter()],
   title: 'Social Links'
 };
 
-export const socialLinks = () => <SocialLinks />;
-export const inANav = () => <SocialLinks />;
-inANav.decorators = [
+export const SocialLinks = () => <Component />;
+export const InANav = () => <Component />;
+InANav.decorators = [
   (Story: ComponentType) => (
     <Nav>
       <Story />
