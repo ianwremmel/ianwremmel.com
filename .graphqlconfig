@@ -1,9 +1,0 @@
-{
-  "projects": {
-    "main": {
-      "includes": [
-        "./__generated__/schema.graphql"
-      ]
-    }
-  }
-}
