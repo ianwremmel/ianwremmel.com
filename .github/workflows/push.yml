@@ -1,6 +1,17 @@
 on: push
 name: Validate
 jobs:
+  chromatic:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: './.github/actions/setup'
+      - run: npm run chromatic
+        env:
+          CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+
   lint:
     runs-on: ubuntu-latest
     steps:
