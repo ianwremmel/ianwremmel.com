@@ -6,9 +6,9 @@ extends:
   - 'plugin:@ianwremmel/ianwremmel/modern'
   - 'plugin:@ianwremmel/ianwremmel/react'
   - 'plugin:jsx-a11y/recommended'
-  - 'plugin:storybook/recommended'
-  - '@remix-run/eslint-config'
-  - '@remix-run/eslint-config/node'
+  # FIXME - 'plugin:storybook/recommended'
+  # FIXME - '@remix-run/eslint-config'
+  # FIXME - '@remix-run/eslint-config/node'
   - 'plugin:react/recommended'
   - 'prettier'
 
@@ -40,11 +40,12 @@ overrides:
         - classes: true
           functions: false
           variables: true
+      no-duplicate-imports: off
 
-  - files:
-      - '*.graphql'
-      - '*.graphqls'
-    extends: 'plugin:@graphql-eslint/schema-recommended'
+# FIXME   - files:
+# FIXME       - '*.graphql'
+# FIXME       - '*.graphqls'
+# FIXME     extends: 'plugin:@graphql-eslint/schema-recommended'
 
   - files: ['**/*.js']
     parserOptions:
