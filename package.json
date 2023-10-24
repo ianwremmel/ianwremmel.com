@@ -40,7 +40,7 @@
     "start": "cross-env NODE_ENV=production netlify dev",
     "prestorybook": "make app/root.css",
     "storybook": "start-storybook -p 6006",
-    "test": "TZ=UTC jest",
+    "test": "./scripts/storybook-test-runner",
     "build-storybook": "make storybook-static"
   },
   "devDependencies": {
@@ -97,8 +97,6 @@
     "eslint-plugin-storybook": "^0.6.3",
     "http-server": "^14.1.1",
     "husky": "^8.0.3",
-    "jest": "^27.5.1",
-    "jest-junit": "^13.2.0",
     "lint-staged": "^15.0.2",
     "markdown-toc": "^1.2.0",
     "mkdirp": "^3.0.1",

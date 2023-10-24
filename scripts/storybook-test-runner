@@ -15,7 +15,7 @@ start_server () {
 
 run_tests () {
   npx --no-install wait-on --timeout 10000 --verbose tcp:127.0.0.1:6006
-  TARGET_URL=http://localhost:6006 npm test -- --selectProjects 'Storybook Test Runner'
+  TARGET_URL=http://localhost:6006 npx test-storybook
 }
 
 stop_server () {
