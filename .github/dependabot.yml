@@ -21,6 +21,9 @@ updates:
       remix:
         patterns:
           - '*remix*'
+      storybook:
+        patterns:
+          - '*storybook*'
     ignore:
       - dependency-name: '@types/node'
         versions:

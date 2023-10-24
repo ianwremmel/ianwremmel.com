@@ -6,6 +6,7 @@ extends:
   - 'plugin:@ianwremmel/ianwremmel/modern'
   - 'plugin:@ianwremmel/ianwremmel/react'
   - 'plugin:jsx-a11y/recommended'
+  - 'plugin:storybook/recommended'
   # This conflicts with another config which also configures the typescript
   # plugin
   # - '@remix-run/eslint-config'
