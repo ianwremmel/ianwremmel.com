@@ -6,14 +6,17 @@ extends:
   - 'plugin:@ianwremmel/ianwremmel/modern'
   - 'plugin:@ianwremmel/ianwremmel/react'
   - 'plugin:jsx-a11y/recommended'
-  # FIXME - 'plugin:storybook/recommended'
-  # FIXME - '@remix-run/eslint-config'
-  # FIXME - '@remix-run/eslint-config/node'
+  # This conflicts with another config which also configures the typescript
+  # plugin
+  # - '@remix-run/eslint-config'
+  - '@remix-run/eslint-config/node'
   - 'plugin:react/recommended'
   - 'prettier'
 
 ignorePatterns:
   - '!.storybook'
+  - '!build'
+  - '!public/build'
 
 overrides:
   # make sure eslint lints all files

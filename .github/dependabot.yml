@@ -18,6 +18,9 @@ updates:
       eslint:
         patterns:
           - '*eslint*'
+      remix:
+        patterns:
+          - '*remix*'
     ignore:
       - dependency-name: '@types/node'
         versions:

@@ -6,6 +6,8 @@
   "keywords": [],
   "license": "MIT",
   "scripts": {
+    "build": "npx remix build",
+    "dev": "npx remix dev",
     "eslint": "eslint ${ESLINT_FORMAT_OPTIONS:-} --ignore-path .gitignore ",
     "lint": "npm-run-all --continue-on-error --parallel lint:*",
     "lint:changelog": "commitlint --from origin/main --to HEAD",
@@ -15,11 +17,16 @@
     "lint:types": "bash -c \"tsc $TSC_OPTIONS\"",
     "prepare": "husky install"
   },
+  "type": "module",
   "devDependencies": {
     "@commitlint/cli": "^18.0.0",
     "@commitlint/config-conventional": "^18.0.0",
     "@ianwremmel/eslint-plugin-ianwremmel": "^6.2.2",
+    "@remix-run/dev": "^2.1.0",
+    "@remix-run/eslint-config": "^2.1.0",
     "@types/node": "^18.18.5",
+    "@types/react": "^18.2.31",
+    "@types/react-dom": "^18.2.14",
     "@typescript-eslint/eslint-plugin": "^6.9.0",
     "@typescript-eslint/parser": "^6.9.0",
     "eslint": "^8.52.0",
@@ -59,5 +66,13 @@
   "sideEffects": false,
   "overrides": {
     "react-element-to-jsx-string": "^15"
+  },
+  "dependencies": {
+    "@remix-run/node": "^2.1.0",
+    "@remix-run/react": "^2.1.0",
+    "@remix-run/serve": "^2.1.0",
+    "isbot": "^3.7.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   }
 }
