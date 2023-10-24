@@ -3,6 +3,7 @@
     "allowJs": true,
     "checkJs": true,
     "declaration": true,
+    "esModuleInterop": true,
     "jsx": "react-jsx",
     "lib": [
       "dom",
@@ -17,5 +18,9 @@
     "types": [
       "node"
     ],
-  }
+  },
+  "exclude": [
+    "public/build",
+    "build",
+  ]
 }
