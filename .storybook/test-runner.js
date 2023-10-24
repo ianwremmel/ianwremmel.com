@@ -8,7 +8,7 @@ const {checkA11y, injectAxe} = require('axe-playwright');
  */
 module.exports = {
   async postRender(page) {
-    await checkA11y(page, '#root', {
+    await checkA11y(page, '#storybook-root', {
       axeOptions: {},
       detailedReport: true,
       detailedReportOptions: {

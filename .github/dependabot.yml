@@ -13,6 +13,10 @@ updates:
     commit-message:
       prefix: 'chore'
       include: 'scope'
+    groups:
+      storybook:
+        patterns:
+          - '*storybook*'
     directory: '/'
     ignore:
       - dependency-name: '@types/node'
