@@ -3,7 +3,6 @@
   "description": "Personal website of Ian W. Remmel",
   "version": "2.0.0",
   "author": "Ian Remmel <1182361+ianwremmel@users.noreply.github.com>",
-  "dependencies": {},
   "keywords": [],
   "license": "MIT",
   "scripts": {
@@ -22,7 +21,9 @@
     "@types/node": "^18.18.5",
     "husky": "^8.0.3",
     "lint-staged": "^15.0.2",
-    "markdown-toc": "^1.2.0"
+    "markdown-toc": "^1.2.0",
+    "mkdirp": "^3.0.1",
+    "typescript": "^5.2.2"
   },
   "private": true,
   "lint-staged": {
