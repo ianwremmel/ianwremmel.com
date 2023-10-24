@@ -46,18 +46,10 @@ overrides:
           variables: true
       no-duplicate-imports: off
 
-# FIXME   - files:
-# FIXME       - '*.graphql'
-# FIXME       - '*.graphqls'
-# FIXME     extends: 'plugin:@graphql-eslint/schema-recommended'
-
-  - files: ['**/*.js']
-    parserOptions:
-      sourceType: script
-
-  - files: ['server.js']
-    parserOptions:
-      sourceType: module
+  # FIXME   - files:
+  # FIXME       - '*.graphql'
+  # FIXME       - '*.graphqls'
+  # FIXME     extends: 'plugin:@graphql-eslint/schema-recommended'
 
   - files: ['./__generated__/**']
     rules:
@@ -68,6 +60,7 @@ overrides:
 parserOptions:
   ecmaFeatures:
     jsx: true
+  sourceType: module
 
 plugins:
   - jsx-a11y
