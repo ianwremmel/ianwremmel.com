@@ -1,6 +1,21 @@
 on: push
 name: Validate
 jobs:
+  accessibility:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: './.github/actions/setup'
+      - run: npm test
+      - uses: check-run-reporter/action@v2.12.0
+        if: ${{ always() }}
+        with:
+          token: '817ac479-0683-4242-be42-9f7b87ea2ed6'
+          label: Storybook Test Runner
+          report: 'reports/junit/**/*.xml'
+
   chromatic:
     runs-on: ubuntu-latest
     steps:
