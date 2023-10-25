@@ -1,3 +1,5 @@
+import '../app/root.css';
+
 import type {Preview} from '@storybook/react';
 
 const preview: Preview = {

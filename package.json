@@ -12,6 +12,7 @@
     "build:styles": "sass --load-path . app/styles/index.scss app/root.css",
     "postbuild:graphql": "npm run eslint -- --fix ./__generated__",
     "build-storybook": "storybook build",
+    "prechromatic": "npm run build:styles",
     "chromatic": "chromatic --exit-zero-on-changes",
     "dev": "npm-run-all --continue-on-error --parallel dev:*",
     "dev:css": "npm run build:styles -- --watch",
@@ -24,7 +25,9 @@
     "prelint:types": "mkdirp reports/style",
     "lint:types": "bash -c \"tsc $TSC_OPTIONS\"",
     "prepare": "husky install",
+    "prestorybook": "npm run build:styles",
     "storybook": "storybook dev -p 6006",
+    "pretest": "npm run build:styles",
     "test": "./scripts/storybook-test-runner"
   },
   "type": "module",
