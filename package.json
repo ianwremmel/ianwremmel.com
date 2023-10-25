@@ -12,7 +12,7 @@
     "build:styles": "sass --load-path . app/styles/index.scss app/root.css",
     "postbuild:graphql": "npm run eslint -- --fix ./__generated__",
     "build-storybook": "storybook build",
-    "chromatic": "chromatic --exit-zero-on-change",
+    "chromatic": "chromatic --exit-zero-on-changes",
     "dev": "npm-run-all --continue-on-error --parallel dev:*",
     "dev:css": "npm run build:styles -- --watch",
     "dev:remix": "remix dev",
