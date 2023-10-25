@@ -6,6 +6,8 @@ set -x
 
 trap stop_server EXIT
 
+npx playwright install
+
 SERVER_PID=
 start_server () {
   ./node_modules/.bin/storybook dev -p 6006 --no-open &
