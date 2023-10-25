@@ -14,7 +14,7 @@ start_server () {
 
 run_tests () {
   npx --no-install wait-on --timeout 10000 --verbose tcp:127.0.0.1:6006
-  TARGET_URL=http://localhost:6006 npm test -- --junit
+  TARGET_URL=http://localhost:6006 npx test-storybook --junit
   # the --outputFile argument doesn't seem to work, so we need to move the
   # report file from it's default location to its pickup location.
   mkdir -p reports/junit
