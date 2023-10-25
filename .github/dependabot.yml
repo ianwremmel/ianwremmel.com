@@ -18,6 +18,9 @@ updates:
       eslint:
         patterns:
           - '*eslint*'
+      graphql:
+        patterns:
+          - '*graphql*'
       remix:
         patterns:
           - '*remix*'

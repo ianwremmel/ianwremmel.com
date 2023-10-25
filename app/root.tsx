@@ -1,3 +1,4 @@
+import type {MetaFunction} from '@remix-run/node';
 import {
   Links,
   LiveReload,
@@ -7,11 +8,31 @@ import {
   ScrollRestoration
 } from '@remix-run/react';
 
+// TODO import styles from './root.css';
+
+export const meta: MetaFunction = () => [
+  {content: 'Ian W. Remmel', name: 'author'},
+  {content: 'utf-8', name: 'charset'},
+  {content: 'Ian W. Remmel', name: 'og:title'},
+  {content: 'noai, noimageai', name: 'robots'},
+  {content: 'Ian W. Remmel', name: 'title'},
+  {content: 'Ian W. Remmel', name: 'twitter:creator'},
+  {content: 'Ian W. Remmel', name: 'twitter:title'},
+  {content: 'width=device-width,initial-scale=1', name: 'viewport'}
+];
+
+export const links = () => [
+  // TODO
+  // {
+  //   href: styles,
+  //   rel: 'stylesheet'
+  // }
+];
+
 export default function App() {
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="data:image/x-icon;base64,AA" />
         <Meta />
         <Links />
       </head>

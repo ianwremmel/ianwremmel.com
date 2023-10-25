@@ -6,10 +6,13 @@
   "keywords": [],
   "license": "MIT",
   "scripts": {
-    "build": "npx remix build",
+    "prebuild": "npm run build:graphql",
+    "build": "remix build",
+    "build:graphql": "graphql-codegen --config codegen.yml --require dotenv/config",
+    "postbuild:graphql": "npm run eslint -- --fix ./__generated__",
     "build-storybook": "storybook build",
     "chromatic": "chromatic --exit-zero-on-change",
-    "dev": "npx remix dev",
+    "dev": "remix dev",
     "eslint": "eslint ${ESLINT_FORMAT_OPTIONS:-} --ignore-path .gitignore ",
     "lint": "npm-run-all --continue-on-error --parallel lint:*",
     "lint:changelog": "commitlint --from origin/main --to HEAD",
@@ -25,6 +28,13 @@
   "devDependencies": {
     "@commitlint/cli": "^18.0.0",
     "@commitlint/config-conventional": "^18.0.0",
+    "@graphql-codegen/cli": "^5.0.0",
+    "@graphql-codegen/introspection": "^4.0.0",
+    "@graphql-codegen/schema-ast": "^4.0.0",
+    "@graphql-codegen/typescript": "^4.0.1",
+    "@graphql-codegen/typescript-operations": "^4.0.1",
+    "@graphql-codegen/typescript-urql": "^4.0.0",
+    "@graphql-eslint/eslint-plugin": "^3.20.1",
     "@ianwremmel/eslint-plugin-ianwremmel": "^6.2.2",
     "@remix-run/dev": "^2.1.0",
     "@remix-run/eslint-config": "^2.1.0",
@@ -41,6 +51,7 @@
     "@typescript-eslint/parser": "^6.9.0",
     "axe-playwright": "^1.2.3",
     "chromatic": "^7.4.0",
+    "dotenv": "^16.3.1",
     "eslint": "^8.52.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-babel": "^5.3.1",
@@ -85,9 +96,13 @@
     "@remix-run/node": "^2.1.0",
     "@remix-run/react": "^2.1.0",
     "@remix-run/serve": "^2.1.0",
+    "@urql/core": "^4.1.4",
     "classnames": "^2.3.2",
+    "graphql": "^16.8.1",
     "isbot": "^3.7.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "rehype-stringify": "^9.0.4",
+    "remark-gfm": "^4.0.0"
   }
 }

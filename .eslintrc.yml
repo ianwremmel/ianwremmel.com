@@ -46,10 +46,12 @@ overrides:
           variables: true
       no-duplicate-imports: off
 
-  # FIXME   - files:
-  # FIXME       - '*.graphql'
-  # FIXME       - '*.graphqls'
-  # FIXME     extends: 'plugin:@graphql-eslint/schema-recommended'
+  - files:
+      - '*.graphql'
+      - '*.graphqls'
+    extends: 'plugin:@graphql-eslint/schema-recommended'
+    parserOptions:
+      schema: ./__generated__/schema.graphql
 
   - files: ['./__generated__/**']
     rules:
