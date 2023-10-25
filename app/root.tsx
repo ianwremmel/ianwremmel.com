@@ -8,7 +8,9 @@ import {
   ScrollRestoration
 } from '@remix-run/react';
 
-// TODO import styles from './root.css';
+// @ts-expect-error - I'm not sure where the remix definition for this is
+// supposed to come from
+import styles from './root.css';
 
 export const meta: MetaFunction = () => [
   {content: 'Ian W. Remmel', name: 'author'},
@@ -22,11 +24,10 @@ export const meta: MetaFunction = () => [
 ];
 
 export const links = () => [
-  // TODO
-  // {
-  //   href: styles,
-  //   rel: 'stylesheet'
-  // }
+  {
+    href: styles,
+    rel: 'stylesheet'
+  }
 ];
 
 export default function App() {
