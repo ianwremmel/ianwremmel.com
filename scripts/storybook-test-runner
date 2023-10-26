@@ -10,7 +10,6 @@ npx playwright install
 
 SERVER_PID=
 start_server () {
-  npm run build:styles
   ./node_modules/.bin/storybook dev -p 6006 --no-open &
   SERVER_PID=$!
 }

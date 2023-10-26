@@ -22,5 +22,6 @@
   "exclude": [
     "public/build",
     "build",
+    "server.ts"
   ]
 }

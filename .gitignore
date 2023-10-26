@@ -17,3 +17,7 @@ node_modules
 # nx
 .nx
 nx-cloud.env
+
+# Local Netlify folder
+.netlify
+
