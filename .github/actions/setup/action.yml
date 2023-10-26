@@ -7,7 +7,10 @@ runs:
       with:
         node-version: 18
         cache: 'npm'
+    - uses: nrwl/nx-set-shas@v3
     - run: npm i -g npm@9
       shell: bash
     - run: npm ci
+      shell: bash
+    - run: npx --no-install nx run-many --target=build --parallel=4
       shell: bash

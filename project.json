@@ -1,0 +1,80 @@
+{
+  "$schema": "./node_modules/nx/schemas/project-schema.json",
+  "targets": {
+    "build": {
+      "dependsOn": ["build:remix", "build:graphql", "build:styles"],
+      "executor": "nx:noop"
+    },
+    "build:remix": {
+      "command": "remix build",
+      "dependsOn": ["build:styles"],
+      "inputs": [
+        "{projectRoot}/app",
+        "{projectRoot}/package.json",
+        "{projectRoot}/__generated__"
+      ],
+      "outputs": ["{projectRoot}/build", "{projectRoot}/public/build"]
+    },
+    "build:graphql": {
+      "executor": "nx:run-commands",
+      "inputs": ["{projectRoot}/app"],
+      "options": {
+        "commands": [
+          "graphql-codegen --config codegen.yml --require dotenv/config",
+          "npm run eslint -- --fix ./__generated__"
+        ],
+        "parallel": false
+      },
+      "outputs": [
+        "{projectRoot}/__generated__/graphql.ts",
+        "{projectRoot}/__generated__/schema.graphql",
+        "{projectRoot}/__generated__/schema.json"
+      ]
+    },
+    "build:styles": {
+      "command": "sass --load-path . app/styles/index.scss app/root.css",
+      "inputs": ["{projectRoot}/app/styles"],
+      "outputs": [
+        "{projectRoot}/app/root.css",
+        "{projectRoot}/app/root.css.map"
+      ]
+    },
+    "build:storybook": {
+      "command": "storybook build",
+      "dependsOn": ["build:styles"],
+      "inputs": [
+        "{projectRoot}/app",
+        "{projectRoot}/__generated__",
+        "{projectRoot}/.storybook"
+      ],
+      "outputs": ["{projectRoot}/storybook-static"]
+    },
+    "chromatic": {
+      "dependsOn": ["build:styles"],
+      "inputs": [
+        "{projectRoot}/app",
+        "{projectRoot}/__generated__",
+        "{projectRoot}/.storybook"
+      ],
+      "command": "chromatic --exit-zero-on-changes"
+    },
+    "storybook": {
+      "dependsOn": ["build:styles"],
+      "inputs": [
+        "{projectRoot}/app",
+        "{projectRoot}/__generated__",
+        "{projectRoot}/.storybook"
+      ],
+      "command": "storybook dev -p 6006"
+    },
+    "test": {
+      "dependsOn": ["build:styles"],
+      "inputs": [
+        "{projectRoot}/app",
+        "{projectRoot}/__generated__",
+        "{projectRoot}/.storybook"
+      ],
+      "command": "./scripts/storybook-test-runner"
+    }
+  }
+}

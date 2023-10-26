@@ -14,3 +14,6 @@ node_modules
 /app/root.css
 /app/root.css.map
 
+# nx
+.nx
+nx-cloud.env

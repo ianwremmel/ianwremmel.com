@@ -1,8 +1,14 @@
 on: push
 name: Validate
+env:
+  CONTENTFUL_GRAPHQL_ENDPOINT: ${{ secrets.CONTENTFUL_GRAPHQL_ENDPOINT }}
+  CONTENTFUL_TOKEN: ${{ secrets.CONTENTFUL_TOKEN }}
+  NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
 jobs:
   accessibility:
+    needs: build
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
         with:
@@ -16,8 +22,19 @@ jobs:
           label: Storybook Test Runner
           report: 'reports/junit/**/*.xml'
 
-  chromatic:
+  build:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: './.github/actions/setup'
+
+  chromatic:
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
         with:
@@ -28,7 +45,9 @@ jobs:
           CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
 
   lint:
+    needs: build
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
         with:
