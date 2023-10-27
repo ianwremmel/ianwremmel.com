@@ -3,11 +3,9 @@ import assert from 'assert';
 import type {LoaderFunction} from '@remix-run/node';
 import {useLoaderData} from '@remix-run/react';
 
-import {render} from 'app/lib/markdown.server';
-
-import {PublicationDate} from '../../components/molecules/publication-date';
-import {getPost} from '../../lib/contentful.server';
-import type {LoaderData} from '../../types';
+import {PublicationDate} from '../components/molecules/publication-date';
+import {getPost} from '../lib/contentful.server';
+import {render} from '../lib/markdown.server';
 
 export const loader: LoaderFunction = async ({params}) => {
   const {slug} = params;
@@ -28,7 +26,7 @@ export const loader: LoaderFunction = async ({params}) => {
 };
 
 export default function BlogPage() {
-  const {post} = useLoaderData<LoaderData<typeof loader>>();
+  const {post} = useLoaderData<typeof loader>();
   return (
     <>
       <main>

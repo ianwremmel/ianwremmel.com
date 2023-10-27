@@ -1,12 +1,10 @@
 import {useLoaderData} from '@remix-run/react';
 
-import type {IndexPagePostFragment} from '__generated__/graphql';
-import {PublicationDate} from 'app/components/molecules/publication-date';
-import {render} from 'app/lib/markdown.server';
-
-import {Hyperlink} from '../../components/atoms/hyperlink';
-import {listPosts} from '../../lib/contentful.server';
-import type {LoaderData} from '../../types';
+import {IndexPagePostFragment} from '../../__generated__/graphql';
+import {Hyperlink} from '../components/atoms/hyperlink';
+import {PublicationDate} from '../components/molecules/publication-date';
+import {listPosts} from '../lib/contentful.server';
+import {render} from '../lib/markdown.server';
 
 export const loader = async () => {
   const posts = (await listPosts()) ?? [];
@@ -22,7 +20,7 @@ export const loader = async () => {
 };
 
 export default function BlogPage() {
-  const {posts} = useLoaderData<LoaderData<typeof loader>>();
+  const {posts} = useLoaderData<typeof loader>();
   return (
     <>
       <ul className="blog-list">

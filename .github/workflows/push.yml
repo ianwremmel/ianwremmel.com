@@ -1,36 +1,19 @@
 on: push
 name: Validate
+env:
+  CONTENTFUL_GRAPHQL_ENDPOINT: ${{ secrets.CONTENTFUL_GRAPHQL_ENDPOINT }}
+  CONTENTFUL_TOKEN: ${{ secrets.CONTENTFUL_TOKEN }}
+  NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
 jobs:
-  #  These actions are currently broken
-  #  fixup:
-  #    runs-on: ubuntu-latest
-  #    steps:
-  #      - uses: actions/checkout@v4.1.1
-  #        with:
-  #          fetch-depth: 0
-  #      - uses: ianwremmel/prevent-fixup-commits@v1.0.2
-  #
-  #  nopush:
-  #    runs-on: ubuntu-latest
-  #    steps:
-  #      - uses: actions/checkout@v4.1.1
-  #        with:
-  #          fetch-depth: 0
-  #      - uses: ianwremmel/prevent-nopush-commits@v1.0.3
-
   accessibility:
+    needs: build
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v4.1.1
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - uses: actions/setup-node@v3
-        with:
-          cache: 'npm'
-          node-version-file: '.nvmrc'
-      - run: npm i -g npm@9
-      - run: npm ci
-      - uses: ./.github/setup-make
+      - uses: './.github/actions/setup'
       - run: ./scripts/storybook-test-runner
       - uses: check-run-reporter/action@v2.12.0
         if: ${{ always() }}
@@ -39,36 +22,37 @@ jobs:
           label: Storybook Test Runner
           report: 'reports/junit/**/*.xml'
 
-  chromatic:
+  build:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v4.1.1
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - uses: actions/setup-node@v3
+      - uses: './.github/actions/setup'
+
+  chromatic:
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
         with:
-          cache: 'npm'
-          node-version-file: '.nvmrc'
-      - run: npm i -g npm@9
-      - run: npm ci
-      - uses: ./.github/setup-make
-      - run: make chromatic
+          fetch-depth: 0
+      - uses: './.github/actions/setup'
+      - run: npm run chromatic
         env:
           CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
 
   lint:
+    needs: build
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v4.1.1
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - uses: actions/setup-node@v3
-        with:
-          cache: 'npm'
-          node-version-file: '.nvmrc'
-      - run: npm i -g npm@9
-      - run: npm ci
-      - run: make app/root.css
+      - uses: './.github/actions/setup'
       - run: npm run lint
         env:
           ESLINT_FORMAT_OPTIONS:

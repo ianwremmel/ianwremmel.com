@@ -1,0 +1,22 @@
+{
+  "targetDefaults": {
+    "build": {
+      "cache": true
+    },
+    "build:remix": {
+      "cache": true
+    },
+    "build:graphql": {
+      "cache": true
+    },
+    "build:styles": {
+      "cache": true
+    },
+    "build-storybook": {
+      "cache": true
+    }
+  },
+  "affected": {
+    "defaultBase": "main"
+  }
+}

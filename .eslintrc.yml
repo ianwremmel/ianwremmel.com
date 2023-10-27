@@ -7,13 +7,17 @@ extends:
   - 'plugin:@ianwremmel/ianwremmel/react'
   - 'plugin:jsx-a11y/recommended'
   - 'plugin:storybook/recommended'
-  - '@remix-run/eslint-config'
+  # This conflicts with another config which also configures the typescript
+  # plugin
+  # - '@remix-run/eslint-config'
   - '@remix-run/eslint-config/node'
   - 'plugin:react/recommended'
   - 'prettier'
 
 ignorePatterns:
   - '!.storybook'
+  - '!build'
+  - '!public/build'
 
 overrides:
   # make sure eslint lints all files
@@ -40,19 +44,14 @@ overrides:
         - classes: true
           functions: false
           variables: true
+      no-duplicate-imports: off
 
   - files:
       - '*.graphql'
       - '*.graphqls'
     extends: 'plugin:@graphql-eslint/schema-recommended'
-
-  - files: ['**/*.js']
     parserOptions:
-      sourceType: script
-
-  - files: ['server.js']
-    parserOptions:
-      sourceType: module
+      schema: ./__generated__/schema.graphql
 
   - files: ['./__generated__/**']
     rules:
@@ -63,6 +62,7 @@ overrides:
 parserOptions:
   ecmaFeatures:
     jsx: true
+  sourceType: module
 
 plugins:
   - jsx-a11y

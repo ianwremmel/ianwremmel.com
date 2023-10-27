@@ -11,6 +11,5 @@ export async function render(markdown: string): Promise<string> {
     .use(remarkRehype)
     .use(rehypeStringify)
     .process(markdown);
-
-  return rendered.value.toString();
+  return String(rendered);
 }

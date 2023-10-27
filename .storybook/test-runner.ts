@@ -1,14 +1,13 @@
-'use strict';
-
-const {checkA11y, injectAxe} = require('axe-playwright');
+import {TestRunnerConfig} from '@storybook/test-runner';
+import {checkA11y, injectAxe} from 'axe-playwright';
 
 /*
  * See https://storybook.js.org/docs/react/writing-tests/test-runner#test-hook-api-experimental
  * to learn more about the test-runner hooks API.
  */
-module.exports = {
+const config: TestRunnerConfig = {
   async postRender(page) {
-    await checkA11y(page, '#root', {
+    await checkA11y(page, '#storybook-root', {
       axeOptions: {},
       detailedReport: true,
       detailedReportOptions: {
@@ -20,3 +19,5 @@ module.exports = {
     await injectAxe(page);
   }
 };
+
+export default config;

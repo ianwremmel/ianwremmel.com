@@ -1,21 +1,27 @@
 {
   "compilerOptions": {
     "allowJs": true,
-    "baseUrl": ".",
+    "checkJs": true,
+    "declaration": true,
     "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": false,
-    "isolatedModules": true,
     "jsx": "react-jsx",
-    "lib": ["DOM", "DOM.Iterable", "ES2019"],
-    "module": "esnext",
+    "lib": [
+      "dom",
+      "es2022"
+    ],
+    "module": "commonjs",
     "moduleResolution": "node",
     "noEmit": true,
     "resolveJsonModule": true,
     "strict": true,
-    "target": "ES2019",
-    "skipLibCheck": true,
-    "paths": {}
+    "target": "es2022",
+    "types": [
+      "node"
+    ],
   },
-  "include": ["remix.env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules"]
+  "exclude": [
+    "public/build",
+    "build",
+    "server.ts"
+  ]
 }

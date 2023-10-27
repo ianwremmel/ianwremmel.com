@@ -1,6 +1,6 @@
 import assert from 'assert';
 
-import {createClient, gql} from '@urql/core';
+import {createClient, fetchExchange, gql} from '@urql/core';
 
 import type {
   GetPostQueryQuery,
@@ -45,6 +45,7 @@ function getClient() {
     'CONTENTFUL_TOKEN must be defined'
   );
   return createClient({
+    exchanges: [fetchExchange],
     fetchOptions() {
       return {
         headers: {
@@ -60,7 +61,7 @@ export async function listPosts(): Promise<
   (IndexPagePostFragment | null)[] | null
 > {
   const {error, data} = await getClient()
-    .query<ListPostsQueryQuery>(ListPostsQuery)
+    .query<ListPostsQueryQuery>(ListPostsQuery, {})
     .toPromise();
   if (error) {
     throw error;

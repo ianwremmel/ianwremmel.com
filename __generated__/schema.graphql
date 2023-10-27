@@ -95,6 +95,7 @@ type AssetLinkingCollections {
   authorCollection(
     limit: Int = 100
     locale: String
+    order: [AssetLinkingCollectionsAuthorCollectionOrder]
     preview: Boolean
     skip: Int = 0
   ): AuthorCollection
@@ -104,6 +105,21 @@ type AssetLinkingCollections {
     preview: Boolean
     skip: Int = 0
   ): EntryCollection
+}
+
+enum AssetLinkingCollectionsAuthorCollectionOrder {
+  name_ASC
+  name_DESC
+  sys_firstPublishedAt_ASC
+  sys_firstPublishedAt_DESC
+  sys_id_ASC
+  sys_id_DESC
+  sys_publishedAt_ASC
+  sys_publishedAt_DESC
+  sys_publishedVersion_ASC
+  sys_publishedVersion_DESC
+  website_ASC
+  website_DESC
 }
 
 enum AssetOrder {
@@ -138,8 +154,10 @@ type Author implements Entry {
   createdEntriesCollection(
     limit: Int = 100
     locale: String
+    order: [AuthorCreatedEntriesCollectionOrder]
     preview: Boolean
     skip: Int = 0
+    where: PostFilter
   ): AuthorCreatedEntriesCollection
   linkedFrom(allowedLocales: [String]): AuthorLinkingCollections
   name(locale: String): String
@@ -162,6 +180,23 @@ type AuthorCreatedEntriesCollection {
   total: Int!
 }
 
+enum AuthorCreatedEntriesCollectionOrder {
+  comments_ASC
+  comments_DESC
+  createdAt_ASC
+  createdAt_DESC
+  slug_ASC
+  slug_DESC
+  sys_firstPublishedAt_ASC
+  sys_firstPublishedAt_DESC
+  sys_id_ASC
+  sys_id_DESC
+  sys_publishedAt_ASC
+  sys_publishedAt_DESC
+  sys_publishedVersion_ASC
+  sys_publishedVersion_DESC
+}
+
 input AuthorFilter {
   AND: [AuthorFilter]
   OR: [AuthorFilter]
@@ -173,6 +208,7 @@ input AuthorFilter {
   biography_not_contains: String
   biography_not_in: [String]
   contentfulMetadata: ContentfulMetadataFilter
+  createdEntries: cfPostNestedFilter
   createdEntriesCollection_exists: Boolean
   name: String
   name_contains: String
@@ -202,9 +238,27 @@ type AuthorLinkingCollections {
   postCollection(
     limit: Int = 100
     locale: String
+    order: [AuthorLinkingCollectionsPostCollectionOrder]
     preview: Boolean
     skip: Int = 0
   ): PostCollection
+}
+
+enum AuthorLinkingCollectionsPostCollectionOrder {
+  comments_ASC
+  comments_DESC
+  createdAt_ASC
+  createdAt_DESC
+  slug_ASC
+  slug_DESC
+  sys_firstPublishedAt_ASC
+  sys_firstPublishedAt_DESC
+  sys_id_ASC
+  sys_id_DESC
+  sys_publishedAt_ASC
+  sys_publishedAt_DESC
+  sys_publishedVersion_ASC
+  sys_publishedVersion_DESC
 }
 
 enum AuthorOrder {
@@ -271,9 +325,27 @@ type CategoryLinkingCollections {
   postCollection(
     limit: Int = 100
     locale: String
+    order: [CategoryLinkingCollectionsPostCollectionOrder]
     preview: Boolean
     skip: Int = 0
   ): PostCollection
+}
+
+enum CategoryLinkingCollectionsPostCollectionOrder {
+  comments_ASC
+  comments_DESC
+  createdAt_ASC
+  createdAt_DESC
+  slug_ASC
+  slug_DESC
+  sys_firstPublishedAt_ASC
+  sys_firstPublishedAt_DESC
+  sys_id_ASC
+  sys_id_DESC
+  sys_publishedAt_ASC
+  sys_publishedAt_DESC
+  sys_publishedVersion_ASC
+  sys_publishedVersion_DESC
 }
 
 enum CategoryOrder {
@@ -538,15 +610,19 @@ type Post implements Entry {
   authorCollection(
     limit: Int = 100
     locale: String
+    order: [PostAuthorCollectionOrder]
     preview: Boolean
     skip: Int = 0
+    where: AuthorFilter
   ): PostAuthorCollection
   body(locale: String): String
   categoryCollection(
     limit: Int = 100
     locale: String
+    order: [PostCategoryCollectionOrder]
     preview: Boolean
     skip: Int = 0
+    where: CategoryFilter
   ): PostCategoryCollection
   comments(locale: String): Boolean
   contentfulMetadata: ContentfulMetadata!
@@ -566,11 +642,39 @@ type PostAuthorCollection {
   total: Int!
 }
 
+enum PostAuthorCollectionOrder {
+  name_ASC
+  name_DESC
+  sys_firstPublishedAt_ASC
+  sys_firstPublishedAt_DESC
+  sys_id_ASC
+  sys_id_DESC
+  sys_publishedAt_ASC
+  sys_publishedAt_DESC
+  sys_publishedVersion_ASC
+  sys_publishedVersion_DESC
+  website_ASC
+  website_DESC
+}
+
 type PostCategoryCollection {
   items: [Category]!
   limit: Int!
   skip: Int!
   total: Int!
+}
+
+enum PostCategoryCollectionOrder {
+  name_ASC
+  name_DESC
+  sys_firstPublishedAt_ASC
+  sys_firstPublishedAt_DESC
+  sys_id_ASC
+  sys_id_DESC
+  sys_publishedAt_ASC
+  sys_publishedAt_DESC
+  sys_publishedVersion_ASC
+  sys_publishedVersion_DESC
 }
 
 type PostCollection {
@@ -583,6 +687,7 @@ type PostCollection {
 input PostFilter {
   AND: [PostFilter]
   OR: [PostFilter]
+  author: cfAuthorNestedFilter
   authorCollection_exists: Boolean
   body: String
   body_contains: String
@@ -591,6 +696,7 @@ input PostFilter {
   body_not: String
   body_not_contains: String
   body_not_in: [String]
+  category: cfCategoryNestedFilter
   categoryCollection_exists: Boolean
   comments: Boolean
   comments_exists: Boolean
@@ -640,6 +746,7 @@ type PostLinkingCollections {
   authorCollection(
     limit: Int = 100
     locale: String
+    order: [PostLinkingCollectionsAuthorCollectionOrder]
     preview: Boolean
     skip: Int = 0
   ): AuthorCollection
@@ -649,6 +756,21 @@ type PostLinkingCollections {
     preview: Boolean
     skip: Int = 0
   ): EntryCollection
+}
+
+enum PostLinkingCollectionsAuthorCollectionOrder {
+  name_ASC
+  name_DESC
+  sys_firstPublishedAt_ASC
+  sys_firstPublishedAt_DESC
+  sys_id_ASC
+  sys_id_DESC
+  sys_publishedAt_ASC
+  sys_publishedAt_DESC
+  sys_publishedVersion_ASC
+  sys_publishedVersion_DESC
+  website_ASC
+  website_DESC
 }
 
 enum PostOrder {
@@ -764,4 +886,111 @@ input SysFilter {
   publishedVersion_lte: Float
   publishedVersion_not: Float
   publishedVersion_not_in: [Float]
+}
+
+input cfAuthorNestedFilter {
+  AND: [cfAuthorNestedFilter]
+  OR: [cfAuthorNestedFilter]
+  biography: String
+  biography_contains: String
+  biography_exists: Boolean
+  biography_in: [String]
+  biography_not: String
+  biography_not_contains: String
+  biography_not_in: [String]
+  contentfulMetadata: ContentfulMetadataFilter
+  createdEntriesCollection_exists: Boolean
+  name: String
+  name_contains: String
+  name_exists: Boolean
+  name_in: [String]
+  name_not: String
+  name_not_contains: String
+  name_not_in: [String]
+  profilePhoto_exists: Boolean
+  sys: SysFilter
+  website: String
+  website_contains: String
+  website_exists: Boolean
+  website_in: [String]
+  website_not: String
+  website_not_contains: String
+  website_not_in: [String]
+}
+
+input cfCategoryNestedFilter {
+  AND: [cfCategoryNestedFilter]
+  OR: [cfCategoryNestedFilter]
+  contentfulMetadata: ContentfulMetadataFilter
+  description: String
+  description_contains: String
+  description_exists: Boolean
+  description_in: [String]
+  description_not: String
+  description_not_contains: String
+  description_not_in: [String]
+  name: String
+  name_contains: String
+  name_exists: Boolean
+  name_in: [String]
+  name_not: String
+  name_not_contains: String
+  name_not_in: [String]
+  sys: SysFilter
+}
+
+input cfPostNestedFilter {
+  AND: [cfPostNestedFilter]
+  OR: [cfPostNestedFilter]
+  authorCollection_exists: Boolean
+  body: String
+  body_contains: String
+  body_exists: Boolean
+  body_in: [String]
+  body_not: String
+  body_not_contains: String
+  body_not_in: [String]
+  categoryCollection_exists: Boolean
+  comments: Boolean
+  comments_exists: Boolean
+  comments_not: Boolean
+  contentfulMetadata: ContentfulMetadataFilter
+  createdAt: DateTime
+  createdAt_exists: Boolean
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  createdAt_in: [DateTime]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_not: DateTime
+  createdAt_not_in: [DateTime]
+  description: String
+  description_contains: String
+  description_exists: Boolean
+  description_in: [String]
+  description_not: String
+  description_not_contains: String
+  description_not_in: [String]
+  excerpt: String
+  excerpt_contains: String
+  excerpt_exists: Boolean
+  excerpt_in: [String]
+  excerpt_not: String
+  excerpt_not_contains: String
+  excerpt_not_in: [String]
+  slug: String
+  slug_contains: String
+  slug_exists: Boolean
+  slug_in: [String]
+  slug_not: String
+  slug_not_contains: String
+  slug_not_in: [String]
+  sys: SysFilter
+  title: String
+  title_contains: String
+  title_exists: Boolean
+  title_in: [String]
+  title_not: String
+  title_not_contains: String
+  title_not_in: [String]
 }

@@ -8,18 +8,20 @@ import {
   ScrollRestoration
 } from '@remix-run/react';
 
+// @ts-expect-error - I'm not sure where the remix definition for this is
+// supposed to come from
 import styles from './root.css';
 
-export const meta: MetaFunction = () => ({
-  author: 'Ian W. Remmel',
-  charset: 'utf-8',
-  'og:title': 'Ian W. Remmel',
-  robots: 'noai, noimageai',
-  title: 'Ian W. Remmel',
-  'twitter:creator': 'Ian W. Remmel',
-  'twitter:title': 'Ian W. Remmel',
-  viewport: 'width=device-width,initial-scale=1'
-});
+export const meta: MetaFunction = () => [
+  {content: 'Ian W. Remmel', name: 'author'},
+  {content: 'utf-8', name: 'charset'},
+  {content: 'Ian W. Remmel', name: 'og:title'},
+  {content: 'noai, noimageai', name: 'robots'},
+  {content: 'Ian W. Remmel', name: 'title'},
+  {content: 'Ian W. Remmel', name: 'twitter:creator'},
+  {content: 'Ian W. Remmel', name: 'twitter:title'},
+  {content: 'width=device-width,initial-scale=1', name: 'viewport'}
+];
 
 export const links = () => [
   {

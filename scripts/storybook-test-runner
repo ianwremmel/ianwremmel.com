@@ -6,16 +6,21 @@ set -x
 
 trap stop_server EXIT
 
+npx playwright install
+
 SERVER_PID=
 start_server () {
-  make storybook-static
-  npx --no-install http-server storybook-static --port 6006 &
+  ./node_modules/.bin/storybook dev -p 6006 --no-open &
   SERVER_PID=$!
 }
 
 run_tests () {
   npx --no-install wait-on --timeout 10000 --verbose tcp:127.0.0.1:6006
-  TARGET_URL=http://localhost:6006 npm test -- --selectProjects 'Storybook Test Runner'
+  TARGET_URL=http://localhost:6006 npx test-storybook --junit
+  # the --outputFile argument doesn't seem to work, so we need to move the
+  # report file from it's default location to its pickup location.
+  mkdir -p reports/junit
+  mv junit.xml reports/junit/storybook.xml
 }
 
 stop_server () {

@@ -5,7 +5,7 @@ node_modules
 # Remix paths
 /.cache
 /public/build
-/.netlify
+/build
 .env
 
 # These two css files are built from styles, so we don't want to commit them.
@@ -14,5 +14,10 @@ node_modules
 /app/root.css
 /app/root.css.map
 
-storybook-static
-build-storybook.log
+# nx
+.nx
+nx-cloud.env
+
+# Local Netlify folder
+.netlify
+

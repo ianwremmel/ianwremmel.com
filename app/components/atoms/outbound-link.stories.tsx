@@ -1,18 +1,18 @@
 import {decorateWithRouter} from '../../storybook/router-decorator';
 
-import {OutboundLink} from './outbound-link';
+import {OutboundLink as Component} from './outbound-link';
 
 export default {
-  component: OutboundLink,
+  component: Component,
   decorators: [decorateWithRouter()],
   title: 'Outbound Link'
 };
 
-export const outboundLink = () => (
-  <OutboundLink
+export const OutboundLink = () => (
+  <Component
     href="https://www.check-run-reporter.com"
     title="Check Run Reporter"
   >
     Check Run Reporter
-  </OutboundLink>
+  </Component>
 );
