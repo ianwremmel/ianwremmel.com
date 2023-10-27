@@ -1,7 +1,7 @@
 const baseConfig =
   process.env.NODE_ENV === 'production'
     ? {
-        // server: './server.ts',
+        server: './server.ts'
       }
     : {};
 
