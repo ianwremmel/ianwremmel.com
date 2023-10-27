@@ -6,21 +6,12 @@ import {ImageLink} from '../../molecules/image-link';
 import githubIcon from './github.svg';
 import linkedinIcon from './linkedin.svg';
 import mailIcon from './mail.svg';
-import twitterIcon from './twitter.svg';
 
 export const SocialLinks = () => {
   const inANav = useContext(NavContext);
 
   const links = (
     <>
-      <ImageLink
-        alt="Twitter logo"
-        className="social-link"
-        href="https://www.twitter.com/ianwremmel"
-        src={twitterIcon}
-        title="Follow me on Twitter"
-      />
-
       <ImageLink
         alt="GitHub logo"
         className="social-link"

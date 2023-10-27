@@ -10,7 +10,7 @@
     "build-storybook": "storybook build",
     "chromatic": "nx exec -- chromatic",
     "dev": "npm-run-all --continue-on-error --parallel dev:*",
-    "dev:css": "npm run build:styles -- --watch",
+    "dev:css": "sass --load-path . app/styles/index.scss app/root.css --watch",
     "dev:remix": "remix dev",
     "eslint": "eslint ${ESLINT_FORMAT_OPTIONS:-} --ignore-path .gitignore ",
     "lint": "npm-run-all --continue-on-error --parallel lint:*",
@@ -20,7 +20,6 @@
     "prelint:types": "mkdirp reports/style",
     "lint:types": "bash -c \"tsc $TSC_OPTIONS\"",
     "prepare": "husky install",
-    "prestart": "npm run build:styles",
     "start": "netlify serve",
     "storybook": "nx exec -- storybook",
     "test": "nx exec -- test"

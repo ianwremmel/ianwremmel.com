@@ -8,8 +8,6 @@ import {
   ScrollRestoration
 } from '@remix-run/react';
 
-// @ts-expect-error - I'm not sure where the remix definition for this is
-// supposed to come from
 import styles from './root.css';
 
 export const meta: MetaFunction = () => [

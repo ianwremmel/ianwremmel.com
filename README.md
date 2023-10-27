@@ -26,7 +26,7 @@ npm run dev
 ### Build deployable output
 
 ```bash
-make all
+npm run build
 ```
 
 ## Contributing
