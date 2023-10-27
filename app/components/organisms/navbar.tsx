@@ -25,14 +25,6 @@ export const Navbar = () => (
           Check Run Reporter
         </OutboundLink>
         <Hyperlink href="/blog">Blog</Hyperlink>
-        <OutboundLink
-          href={
-            'https://timeline.ianwremmel.com/ianwremmel/highlights/604baf8c-daee-4133-a10e-cef7e5a379ff'
-          }
-          title=""
-        >
-          Polywork
-        </OutboundLink>
         <SocialLinks />
       </Nav>
     </div>

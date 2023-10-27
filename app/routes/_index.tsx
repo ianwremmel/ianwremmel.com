@@ -32,18 +32,8 @@ export default function Index() {
           </p>
 
           <p>
-            Recently, I started a <Hyperlink href="/blog">blog</Hyperlink>. It's
-            still super early, but you can see what I've got in mind for it over
-            on{' '}
-            <OutboundLink
-              href={
-                'https://timeline.ianwremmel.com/ianwremmel/highlights/604baf8c-daee-4133-a10e-cef7e5a379ff'
-              }
-              title=""
-            >
-              Polywork
-            </OutboundLink>
-            .
+            I started a <Hyperlink href="/blog">blog</Hyperlink>. I kinda got
+            distracted for a while, but expect to see new updates soonish. .
           </p>
         </main>
       </div>
