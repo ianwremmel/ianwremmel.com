@@ -97,7 +97,7 @@
   },
   "dependencies": {
     "@netlify/functions": "^2.3.0",
-    "@netlify/remix-adapter": "^2.0.0",
+    "@netlify/remix-adapter": "^2.1.0",
     "@remix-run/node": "^2.1.0",
     "@remix-run/react": "^2.1.0",
     "@urql/core": "^4.1.4",
