@@ -25,6 +25,10 @@ export const links = () => [
   {
     href: styles,
     rel: 'stylesheet'
+  },
+  {
+    href: 'https://mastodon.social/@ianwremmel',
+    rel: 'me'
   }
 ];
 
