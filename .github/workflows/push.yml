@@ -44,6 +44,14 @@ jobs:
         env:
           CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
 
+  fixup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: ianwremmel/prevent-fixup-commits@v1.0.8
+
   lint:
     needs: build
     runs-on: ubuntu-latest
@@ -70,3 +78,11 @@ jobs:
           token: '817ac479-0683-4242-be42-9f7b87ea2ed6'
           label: TSC
           report: 'reports/style/tsc.log'
+
+  nopush:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: ianwremmel/prevent-nopush-commits@v1.0.8
