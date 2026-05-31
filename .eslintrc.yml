@@ -4,20 +4,11 @@ env:
 
 extends:
   - 'plugin:@ianwremmel/ianwremmel/modern'
-  - 'plugin:@ianwremmel/ianwremmel/react'
-  - 'plugin:jsx-a11y/recommended'
-  - 'plugin:storybook/recommended'
-  # This conflicts with another config which also configures the typescript
-  # plugin
-  # - '@remix-run/eslint-config'
-  - '@remix-run/eslint-config/node'
-  - 'plugin:react/recommended'
   - 'prettier'
 
 ignorePatterns:
-  - '!.storybook'
   - '!build'
-  - '!public/build'
+  - '__generated__'
 
 overrides:
   # make sure eslint lints all files
@@ -46,27 +37,10 @@ overrides:
           variables: true
       no-duplicate-imports: off
 
-  - files:
-      - '*.graphql'
-      - '*.graphqls'
-    extends: 'plugin:@graphql-eslint/schema-recommended'
-    parserOptions:
-      schema: ./__generated__/schema.graphql
-
-  - files: ['./__generated__/**']
-    rules:
-      '@graphql-eslint/naming-convention': off
-      '@graphql-eslint/require-description': off
-      '@graphql-eslint/strict-id-in-types': off
-
 parserOptions:
   ecmaFeatures:
     jsx: true
   sourceType: module
-
-plugins:
-  - jsx-a11y
-  - react
 
 rules:
   compat/compat: off
@@ -77,14 +51,3 @@ rules:
         - '**/*.scss'
   no-restricted-syntax: off
   require-jsdoc: off
-  react/react-in-jsx-scope: off
-  # This rule seems like a remnant of a bad time in the frontend world. It's mostly just annoying without providing any
-  # technical benefit and only minimal opportunity to prevent mistakes.
-  react/no-unescaped-entities: off
-
-settings:
-  react:
-    version: 'detect'
-  linkComonents:
-    - name: 'Link'
-      linkAttribute: 'href'

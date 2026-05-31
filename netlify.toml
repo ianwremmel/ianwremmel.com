@@ -1,20 +1,21 @@
+# NOTE: Remix 3 (beta) does not yet ship an official Netlify adapter. This app
+# now boots a standard Node server (`npm start`, see server.ts) built on
+# `remix/node-fetch-server`. Production hosting needs to run that Node server
+# (e.g. a Node host, container, or a future Remix 3 Netlify adapter) rather than
+# the old bundled-function approach. The build below only produces the GraphQL
+# types and the compiled CSS in `public/`.
 [build]
 command = "npm run build"
 publish = "public"
-environment = { NPM_VERSION = "9" }
+environment = { NODE_VERSION = "24" }
 
 [dev]
 command = "npm run dev"
 targetPort = 3000
 
-[[redirects]]
-from = "/*"
-to = "/.netlify/functions/server"
-status = 200
-
-# Set immutable caching for static files, because they have fingerprinted filenames
+# Set immutable caching for fingerprinted asset files.
 [[headers]]
-for = "/build/*"
+for = "/assets/*"
 
 [headers.values]
 "Cache-Control" = "public, max-age=60, immutable"

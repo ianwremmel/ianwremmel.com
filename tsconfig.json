@@ -1,27 +1,20 @@
 {
   "compilerOptions": {
-    "allowJs": true,
-    "checkJs": true,
-    "declaration": true,
-    "esModuleInterop": true,
-    "jsx": "react-jsx",
-    "lib": [
-      "dom",
-      "es2022"
-    ],
-    "module": "commonjs",
-    "moduleResolution": "node",
-    "noEmit": true,
-    "resolveJsonModule": true,
     "strict": true,
-    "target": "es2022",
-    "types": [
-      "node"
-    ],
+    "lib": ["ES2024", "DOM", "DOM.Iterable"],
+    "types": ["node"],
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "target": "ESNext",
+    "allowImportingTsExtensions": true,
+    "rewriteRelativeImportExtensions": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "jsx": "react-jsx",
+    "jsxImportSource": "remix/ui",
+    "noEmit": true,
+    "resolveJsonModule": true
   },
-  "exclude": [
-    "public/build",
-    "build",
-    "server.ts"
-  ]
+  "exclude": ["dist", "build", "public/build", "__generated__"]
 }
