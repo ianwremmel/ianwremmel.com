@@ -1,4 +1,5 @@
 config:
+  gqlImport: 'graphql-tag#gql'
   defaultScalarType: unknown
   enumsAsTypes: true
   scalars:

@@ -5,6 +5,12 @@
 [![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
 [![Dependabot badge](https://img.shields.io/badge/Dependabot-active-brightgreen.svg)](https://dependabot.com/)
 
+Built with [Remix 3](https://remix.run).
+
+## Requirements
+
+- Node.js `>=24.3.0` (see `.nvmrc`)
+
 ## Installation
 
 Clone from GitHub and install dependencies.

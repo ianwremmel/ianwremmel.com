@@ -1,0 +1,43 @@
+import {Document} from './document.tsx';
+import {Hyperlink} from './hyperlink.tsx';
+import {OutboundLink} from './outbound-link.tsx';
+import {SocialLinks} from './social-links.tsx';
+
+export function HomePage() {
+  return () => (
+    <Document>
+      <div className="wrapper landing-page">
+        <SocialLinks />
+
+        <main>
+          <h1>Hi! I'm Ian Remmel.</h1>
+
+          <p>
+            If you landed here, you probably met me at a conference or a meetup.
+            Maybe I was talking about{' '}
+            <OutboundLink
+              href="https://www.linkedin.com/in/ianwremmel/"
+              title="My LinkedIn profile, which describes my current employment status"
+            >
+              what I do at work
+            </OutboundLink>
+            , or I was excited about something I'm doing with one of my side
+            projects (probably{' '}
+            <OutboundLink
+              href="https://www.check-run-reporter.com/?utm_source=https%3A%2F%2Fwww.ianwremmel.com&utm_medium=website&utm_campaign=none"
+              title="Check Run Reporter helps you fix your CI failures faster by reducing the need to dig through poorly formatted logs."
+            >
+              check-run-reporter.com
+            </OutboundLink>
+            ).
+          </p>
+
+          <p>
+            I started a <Hyperlink href="/blog">blog</Hyperlink>. I kinda got
+            distracted for a while, but expect to see new updates soonish. .
+          </p>
+        </main>
+      </div>
+    </Document>
+  );
+}

@@ -2,22 +2,21 @@
 # https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git
 node_modules
 
-# Remix paths
+# Build artifacts
 /.cache
-/public/build
 /build
+/dist
 .env
 
-# These two css files are built from styles, so we don't want to commit them.
-# For now, we'll assume any other css files are one-offs and should be
-# committed.
-/app/root.css
-/app/root.css.map
+# Compiled CSS is built from styles, so we don't commit it.
+/public/root.css
+/public/root.css.map
 
-# nx
-.nx
-nx-cloud.env
+# Pre-built browser bundle (see `build:assets`).
+/public/assets
 
 # Local Netlify folder
 .netlify
 
+# Lint/test reports
+/reports
