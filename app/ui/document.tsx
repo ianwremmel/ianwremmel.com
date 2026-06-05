@@ -1,7 +1,5 @@
 import type {Handle, RemixNode} from 'remix/ui';
 
-import {routes} from '../routes.ts';
-
 export interface DocumentProps {
   children?: RemixNode;
   head?: RemixNode;
@@ -32,10 +30,12 @@ export function Document(handle: Handle<DocumentProps>) {
         </head>
         <body>
           {children}
-          <script
-            type="module"
-            src={routes.assets.href({path: 'app/assets/entry.ts'})}
-          ></script>
+          {/*
+            The hydration runtime is pre-compiled to a static file at build
+            time (see `build:assets`) and served from `public/`, so production
+            never depends on the asset server's runtime compilation.
+          */}
+          <script type="module" src="/assets/entry.js"></script>
         </body>
       </html>
     );

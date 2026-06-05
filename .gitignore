@@ -12,6 +12,9 @@ node_modules
 /public/root.css
 /public/root.css.map
 
+# Pre-built browser bundle (see `build:assets`).
+/public/assets
+
 # Local Netlify folder
 .netlify
 

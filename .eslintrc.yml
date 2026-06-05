@@ -17,12 +17,14 @@ overrides:
       - '**/*.jsx'
       - '**/*.ts'
       - '**/*.tsx'
+      - '**/*.mts'
 
   - extends:
       - 'plugin:@ianwremmel/ianwremmel/typescript'
     files:
       - '**/*.ts'
       - '**/*.tsx'
+      - '**/*.mts'
     rules:
       '@typescript-eslint/consistent-type-definitions':
         - error

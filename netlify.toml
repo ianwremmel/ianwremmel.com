@@ -1,26 +1,39 @@
-# NOTE: Remix 3 (beta) does not yet ship an official Netlify adapter. This app
-# now boots a standard Node server (`npm start`, see server.ts) built on
-# `remix/node-fetch-server`. Production hosting needs to run that Node server
-# (e.g. a Node host, container, or a future Remix 3 Netlify adapter) rather than
-# the old bundled-function approach. The build below only produces the GraphQL
-# types and the compiled CSS in `public/`.
+# Remix 3 (beta) has no official Netlify adapter yet, so the app is served on
+# Netlify via a hand-written function (netlify/functions/server.mts) that bridges
+# Netlify's Fetch runtime to the app router. Static assets (compiled CSS, the
+# pre-built hydration bundle, social SVGs) live in `public/` and are served by
+# the CDN; the catch-all redirect below sends everything else to the function.
+# The same router also runs as a standalone Node server via `npm start`.
 [build]
 command = "npm run build"
 publish = "public"
 environment = { NODE_VERSION = "24" }
 
+[functions]
+node_bundler = "esbuild"
+# Bundle the route/UI .ts(x) tree into the function. App source is included so
+# the asset server can still resolve source modules at runtime when needed.
+included_files = ["app/**", "__generated__/**", "tsconfig.json"]
+
 [dev]
 command = "npm run dev"
 targetPort = 3000
 
-# Set immutable caching for fingerprinted asset files.
-[[headers]]
-for = "/assets/*"
-
-[headers.values]
-"Cache-Control" = "public, max-age=60, immutable"
-
+# Static files in `public/` are served first; anything without a matching file
+# falls through to the SSR function.
 [[redirects]]
 from = "/business-card"
 to = "/"
 status = 302
+
+[[redirects]]
+from = "/*"
+to = "/.netlify/functions/server"
+status = 200
+
+# Long-lived caching for the pre-built, content-stable browser assets.
+[[headers]]
+for = "/assets/*"
+
+[headers.values]
+"Cache-Control" = "public, max-age=3600"
